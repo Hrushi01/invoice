@@ -10,13 +10,14 @@ function Table({ data, setSum }) {
       {data.list.map((item, index) => {
         return (
           <div key={index}>
-            <table class="table-auto w-full border-2">
-              <tr className={index === 0 ? "bg-slate-200 font-bold" : "hidden"}>
+            <table class="table-auto w-full border-2 ">
+              <tr
+                className={index === 0 ? "bg-slate-200 font-bold " : "hidden"}>
                 <td className="w-30">Quantity</td>
 
-                <td>Desciption</td>
-                <td>Unit Price</td>
-                <td>Total</td>
+                <td className="w-30 ">Desciption</td>
+                <td className="w-30 ">Unit Price</td>
+                <td className="w-30 ">Total</td>
               </tr>
               <tr>
                 <td className="w-1/6 ">{item.quantity}</td>

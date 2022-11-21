@@ -18,9 +18,21 @@ function Invoice(props) {
     content: () => componentRef.current,
   });
   return (
-    <div>
+    <div className=" relative ">
+      <div className="  mt-5   absolute   ">
+        <button
+          onClick={() => setShowInvoice(false)}
+          className=" bg-blue-600 text-white rounded mr-5 m-3 p-2 bottom-4 ">
+          Edit details
+        </button>
+        <button
+          onClick={handelprint}
+          className=" bg-blue-600 text-white rounded p-2 bottom-4 ">
+          Print Invoice{" "}
+        </button>
+      </div>
       <main
-        className="m-5 mb-1 p-5 xl:max-w-4xl xl:mx-auto  bg-white rounded shadow"
+        className="m-5 mb-1 pt-10  p-5 xl:max-w-4xl xl:mx-auto  bg-white rounded shadow"
         ref={componentRef}>
         <Header handelprint={handelprint} data={data} />
 
@@ -35,18 +47,6 @@ function Invoice(props) {
         {/* <Notes /> */}
         {/* <Footer /> */}
       </main>
-      <div className=" xl:max-w-md xl:mx-auto flex justify-around  ">
-        <button
-          onClick={() => setShowInvoice(false)}
-          className=" bg-blue-600 text-white rounded p-2 bottom-4 ">
-          Edit details
-        </button>
-        <button
-          onClick={handelprint}
-          className=" bg-blue-600 text-white rounded p-2 bottom-4 ">
-          Print Invoice{" "}
-        </button>
-      </div>
     </div>
   );
 }

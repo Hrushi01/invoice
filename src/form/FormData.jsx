@@ -128,7 +128,7 @@ const FormData = (props) => {
                   Account Details:
                 </label>
 
-                <div className="  grid grid-cols-4  gap-10  p-2  ">
+                <div className="  grid grid-cols-2  gap-5 gap-y-0  p-2  ">
                   <div className="">
                     <label className="flex justify-start pl-1 font-bold font-serif text-base text-gray-600">
                       Account Holder Name:
@@ -440,6 +440,7 @@ const FormData = (props) => {
                                         <Field
                                           type="number"
                                           label="quantity"
+                                          min="0"
                                           name={`list.${index}.quantity`}
                                           placeholder="Enter your Quantity"
                                           className=" p-2 m-1 w-full   rounded border-2 border-blue-200"
@@ -453,7 +454,8 @@ const FormData = (props) => {
                                           Price:
                                         </label>
                                         <Field
-                                          type="text"
+                                          type="number"
+                                          min="0"
                                           label="Price"
                                           name={`list.${index}.price`}
                                           placeholder="Enter your price"
@@ -466,17 +468,13 @@ const FormData = (props) => {
                                           htmlFor={`list.${index}.total`}>
                                           Amount:
                                         </label>
-
                                         <Field
-                                          component="select"
+                                          disabled
+                                          value={calTot(index)}
                                           className="  p-2 m-1 w-full   rounded border-2  border-blue-200"
                                           label={`list.${index}.total`}
                                           name={`list.${index}.total`}
-                                          multiple={false}>
-                                          <option value={calTot(index)}>
-                                            {calTot(index)}
-                                          </option>
-                                        </Field>
+                                        />
                                       </div>
                                     </div>
                                   </div>
@@ -512,6 +510,7 @@ const FormData = (props) => {
               className=" bg-blue-600 text-white rounded p-2 bottom-4 ">
               Submit
             </button>
+            {console.log(props.errors, "Props.erros")}
             {setData(props.values)}
           </Form>
         )}
