@@ -1,11 +1,11 @@
 import React from "react";
 
-import Table from "../components/Table";
-import ClientDetails from "../components/ClientDetails";
-import Address from "../components/Address";
-import Header from "../components/Header";
+import Table from "../../components/Table";
+import ClientDetails from "../../components/ClientDetails";
+import Address from "../../components/Address";
+import Header from "../../components/Header";
 
-import TotalAmt from "../components/TotalAmt";
+import TotalAmt from "../../components/TotalAmt";
 import { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
 

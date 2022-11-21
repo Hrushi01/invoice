@@ -2,9 +2,9 @@ import React from "react";
 import { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
 import { FaInnosoft } from "react-icons/fa";
-import Total from "./invoice2/Total";
-import Footer from "./invoice2/Footer";
-import Table2 from "./Table2";
+import Total from "./Total";
+import Footer from "./Footer";
+import Table2 from "../../components/Table2";
 
 function Invoice2(props) {
   const { data, setShowInvoice } = props;

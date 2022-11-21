@@ -2,67 +2,40 @@ import React from "react";
 import { useState } from "react";
 
 import FormData from "./form/FormData";
-import Invoice from "./invoice/Invoice";
+import Invoice from "./invoice/invoice1/Invoice";
 import { FaIndent } from "react-icons/fa";
-import Invoice2 from "./invoice/Invoice2";
+import Invoice2 from "./invoice/invoice2/Invoice2";
 
 function Display() {
   const [showInvoice, setShowInvoice] = useState(false);
   const [data, setData] = useState({
-    title: "",
-    name: "Hruhsikesh Ambike",
-    address: "b1-101,swapnapruri",
-    state: "Maharasgtra",
-    city: "Pune",
-    pin: "411028",
+    name: "",
+    address: "",
+    state: "",
+    city: "",
+    pin: "",
 
-    holdername: "Hrushikesh",
-    accnumber: "454846",
-    IFSC: "ss555",
-    bankname: "Hadapsar",
+    holdername: "",
+    accnumber: "",
+    IFSC: "",
+    bankname: "",
 
-    clientname: "Ankit ojha",
-    clientaddress: "b!1-191,silvr sitod",
-    clientstate: "Maharashtra",
-    clientpin: "411028",
-    invoicenumber: "55155",
-    invoicedate: "12-12-2005",
+    clientname: "",
+    clientaddress: "",
+    clientstate: "",
+    clientpin: "",
+    invoicenumber: "",
+    invoicedate: "",
 
     list: [
       {
-        quantity: "5",
-        description: "sjjsjs",
-        price: "458",
-        total: null,
-      },
-      {
-        quantity: "5",
-        description: "sjjsjs",
-        price: "458",
-        total: null,
-      },
-      {
-        quantity: "5",
-        description: "sjjsjs",
-        price: "458",
-        total: null,
-      },
-      {
-        quantity: "5",
-        description: "sjjsjs",
-        price: "458",
+        quantity: "",
+        description: "",
+        price: "",
         total: null,
       },
     ],
   });
-  const [list, setList] = useState([
-    {
-      quantity: "30",
-      description: "Some descrip",
-      price: "50",
-      total: null,
-    },
-  ]);
 
   return (
     <>
@@ -89,8 +62,6 @@ function Display() {
             setShowInvoice={setShowInvoice}
             data={data}
             setData={setData}
-            list={list}
-            setList={setList}
           />
         )}
       </div>
