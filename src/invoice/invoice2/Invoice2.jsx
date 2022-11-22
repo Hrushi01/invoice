@@ -16,7 +16,7 @@ function Invoice2(props) {
   });
   return (
     <>
-      <div className=" relative ">
+      <div className=" relative z-12 ">
         <div className=" mt-5  absolute   ">
           <button
             onClick={() => setShowInvoice(false)}

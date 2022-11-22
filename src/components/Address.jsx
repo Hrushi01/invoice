@@ -10,7 +10,9 @@ function Address({ data }) {
             {/* <input type="text" name="text" placeholder="name" required></input> */}
 
             <div>{data.address}</div>
-            <div>{data.state}</div>
+            <div>
+              {data.city},{data.state}
+            </div>
             <div>Pincode-{data.pin}</div>
           </section>
         </div>

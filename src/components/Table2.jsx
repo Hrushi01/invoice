@@ -23,16 +23,18 @@ function Table2(props) {
                 <td className="w-30 ">PRICE</td>
                 <td className="w-30 ">TOTAL</td>
               </tr>
-              <tr className="text-gray-600 font-serif text-sm p-5">
-                <td className="w-2/4 p-2">{item.description}</td>
-                <td className="w-1/6 ">{item.quantity}</td>
-
-                <td>${item.price}</td>
-                <td className="w-1/6">${calTot(index)}</td>
-                <td className="hidden">{(total += calTot(index))}</td>
-                {console.log(total, "total")}
-                {setSum(total)}
-              </tr>
+              {item.quantity && item.description && item.price ? (
+                <tr className="text-gray-600 font-serif text-sm p-5">
+                  <td className="w-2/4 p-2">{item.description}</td>
+                  <td className="w-1/6 ">{item.quantity}</td>{" "}
+                  <td>${item.price}</td>
+                  <td className="w-1/6">${calTot(index)}</td>{" "}
+                  <td className="hidden">{(total += calTot(index))}</td>
+                  {setSum(total)}
+                </tr>
+              ) : (
+                <></>
+              )}
             </table>
           </div>
         );

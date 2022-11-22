@@ -22,19 +22,15 @@ function ClientDetails({ data }) {
             {data.accnumber}
           </div>
           <div className="">
-            <span className="font-medium">IFSC code:</span> {data.IFSC}
+            <span className="font-medium uppercase">IFSC code:</span>{" "}
+            {data.IFSC.toUpperCase()}
           </div>
           <div className="">
-            <span className="font-medium">Bank Name:</span> {data.bankname}
+            <span className="font-medium uppercase">Bank Name:</span>{" "}
+            {data.bankname.toUpperCase()}
           </div>
         </div>
       </div>{" "}
-      {/* <section className="mt-5">
-        <input type="text" name="text" placeholder="name" required></input>
-
-        <h2 className="text-xl uppercase">client name</h2>
-        <p>client Address</p>
-      </section> */}
     </div>
   );
 }

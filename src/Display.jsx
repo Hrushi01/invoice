@@ -9,27 +9,45 @@ import Invoice2 from "./invoice/invoice2/Invoice2";
 function Display() {
   const [showInvoice, setShowInvoice] = useState(false);
   const [data, setData] = useState({
-    name: "",
-    address: "",
-    state: "",
-    city: "",
-    pin: "",
+    name: "Hrushikesh Ambike",
+    address: "b1-101,skskskskss",
+    state: "Maharashtra",
+    city: "Pune",
+    pin: "411028",
 
-    holdername: "",
-    accnumber: "",
-    IFSC: "",
-    bankname: "",
+    holdername: "hruhsikesh Ambike",
+    accnumber: "44554455",
+    IFSC: "sbi555",
+    bankname: "bank of baroda",
 
-    clientname: "",
-    clientaddress: "",
-    clientstate: "",
-    clientpin: "",
-    invoicenumber: "",
-    invoicedate: "",
+    clientname: "Takiot sol",
+    clientaddress: "b1-101,silverstone",
+    clientstate: "maharashtra",
+    clientpin: "411028",
+    invoicenumber: "5151515",
+    invoicedate: "12-5-2001",
 
     list: [
       {
-        quantity: "",
+        quantity: "2",
+        description: "ddds",
+        price: "2",
+        total: null,
+      },
+      {
+        quantity: "2",
+        description: "ddds",
+        price: "2",
+        total: null,
+      },
+      {
+        quantity: "2",
+        description: "ddds",
+        price: "2",
+        total: null,
+      },
+      {
+        quantity: "2",
         description: "",
         price: "",
         total: null,
@@ -39,7 +57,7 @@ function Display() {
 
   return (
     <>
-      <div className="flex justify-between  fixed w-full bg-slate-300">
+      <div className="flex justify-between  fixed w-full bg-slate-300 z-10">
         <div className="p-3 flex text-blue-600 pl-56">
           <FaIndent className="text-4xl" />
           <div className=" text-2xl pl-2">Invoice Builder</div>
@@ -48,7 +66,7 @@ function Display() {
           Create and Download your Invoice for free Now!!
         </div>
       </div>
-      <div className="bg-indigo-50 p-12">
+      <div className="bg-indigo-50 p-12 z-1">
         {showInvoice ? (
           <>
             <div className="grid grid-cols-2  gap-10">

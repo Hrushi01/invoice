@@ -8,7 +8,6 @@ const FormData = (props) => {
   const calTot = (index) => {
     let pr = data?.list[index]?.quantity * data?.list[index]?.price;
     sum = sum + pr;
-    console.log(data.list[0].total);
     return pr;
   };
 
@@ -41,7 +40,7 @@ const FormData = (props) => {
                     placeholder="Name"
                     className=" p-2 m-1 w-full   rounded border-2 border-blue-200"
                   />
-                  <div className="flex justify-center">
+                  <div className="flex justify-left pl-3">
                     {props.errors.name && props.touched.name ? (
                       <p className="  text-red-600">{props.errors.name}</p>
                     ) : null}
@@ -58,7 +57,7 @@ const FormData = (props) => {
                 <label className="flex justify-start pl-3 font-bold font-sans text-xl text-gray-800 mt-4">
                   Address:
                 </label>
-                <div className="  grid grid-cols-3  gap-10  p-2  ">
+                <div className="  grid grid-cols-4  gap-5  p-2  ">
                   <div className="">
                     <label className="flex justify-start pl-1 font-bold font-serif text-base text-gray-600">
                       Flat No,Building,etc:
@@ -71,12 +70,31 @@ const FormData = (props) => {
                       placeholder="Enter your address"
                       className="  p-2 m-1 w-full   rounded border-2  border-blue-200"
                     />
-                    <div className="flex justify-center">
+                    <div className="flex justify-left pl-3">
                       {props.errors.address && props.touched.address ? (
                         <p className="  text-red-600">{props.errors.address}</p>
                       ) : null}
                     </div>
                   </div>
+                  <div className="   ">
+                    <label className="flex justify-start pl-1 font-bold font-serif text-base text-gray-600">
+                      City:
+                    </label>
+
+                    <Field
+                      type="text"
+                      label="city"
+                      name="city"
+                      placeholder="Enter your city"
+                      className=" p-2 m-1 w-full   rounded border-2 border-blue-200"
+                    />
+                    <div className="flex justify-left pl-3">
+                      {props.errors.city && props.touched.city ? (
+                        <p className="  text-red-600">{props.errors.city}</p>
+                      ) : null}
+                    </div>
+                  </div>
+
                   <div className="   ">
                     <label className="flex justify-start pl-1 font-bold font-serif text-base text-gray-600">
                       State:
@@ -89,7 +107,7 @@ const FormData = (props) => {
                       placeholder="Enter your state"
                       className=" p-2 m-1 w-full   rounded border-2 border-blue-200"
                     />
-                    <div className="flex justify-center">
+                    <div className="flex justify-left pl-3">
                       {props.errors.state && props.touched.state ? (
                         <p className="  text-red-600">{props.errors.state}</p>
                       ) : null}
@@ -102,14 +120,18 @@ const FormData = (props) => {
                     </label>
 
                     <Field
-                      type="text"
+                      min="0"
+                      max="999999"
+                      type="number"
                       label="pin"
                       name="pin"
                       placeholder="Enter your pincode"
                       className="  p-2 m-1 w-full   rounded border-2  border-blue-200"
                     />
-                    <div className="flex justify-center">
-                      {props.errors.pin && props.touched.pin ? (
+                    <div className="flex justify-left pl-3">
+                      {props.errors.pin === "Invalid" ? (
+                        <p className="  text-red-600">{props.errors.pin}</p>
+                      ) : props.errors.pin && props.touched.pin ? (
                         <p className="  text-red-600">{props.errors.pin}</p>
                       ) : null}
                     </div>
@@ -128,7 +150,7 @@ const FormData = (props) => {
                   Account Details:
                 </label>
 
-                <div className="  grid grid-cols-2  gap-5 gap-y-0  p-2  ">
+                <div className="  grid grid-cols-2  gap-5 gap-y-3  p-2  ">
                   <div className="">
                     <label className="flex justify-start pl-1 font-bold font-serif text-base text-gray-600">
                       Account Holder Name:
@@ -141,7 +163,7 @@ const FormData = (props) => {
                       placeholder="Account holder name"
                       className="  p-2 m-1 w-full   rounded border-2  border-blue-200"
                     />
-                    <div className="flex justify-center">
+                    <div className="flex justify-left pl-3">
                       {props.errors.holdername && props.touched.holdername ? (
                         <p className="  text-red-600">
                           {props.errors.holdername}
@@ -155,13 +177,13 @@ const FormData = (props) => {
                     </label>
 
                     <Field
-                      type="text"
+                      type="number"
                       label="AccountNo"
                       name="accnumber"
                       placeholder="Enter account number"
                       className="  p-2 m-1 w-full   rounded border-2  border-blue-200"
                     />
-                    <div className="flex justify-center">
+                    <div className="flex justify-left pl-3">
                       {props.errors.accnumber && props.touched.accnumber ? (
                         <p className="  text-red-600">
                           {props.errors.accnumber}
@@ -179,9 +201,9 @@ const FormData = (props) => {
                       label="IFSC"
                       name="IFSC"
                       placeholder="Enter bank IFSC code"
-                      className="  p-2 m-1 w-full   rounded border-2  border-blue-200"
+                      className="  p-2 m-1 w-full uppercase  rounded border-2  border-blue-200"
                     />
-                    <div className="flex justify-center">
+                    <div className="flex justify-left pl-3">
                       {props.errors.IFSC && props.touched.IFSC ? (
                         <p className="  text-red-600">{props.errors.IFSC}</p>
                       ) : null}
@@ -199,7 +221,7 @@ const FormData = (props) => {
                       placeholder="Enter bank name"
                       className=" p-2 m-1 w-full   rounded border-2 border-blue-200"
                     />
-                    <div className="flex justify-center">
+                    <div className="flex justify-left pl-3">
                       {props.errors.bankname && props.touched.bankname ? (
                         <p className="  text-red-600">
                           {props.errors.bankname}
@@ -234,7 +256,7 @@ const FormData = (props) => {
                     placeholder="Enter Clientname"
                     className=" p-2 m-1 w-full   rounded border-2 border-blue-200"
                   />
-                  <div className="flex justify-center">
+                  <div className="flex justify-left pl-3">
                     {props.errors.clientname && props.touched.clientname ? (
                       <p className="  text-red-600">
                         {props.errors.clientname}
@@ -256,13 +278,13 @@ const FormData = (props) => {
                   </label>
 
                   <Field
-                    type="text"
+                    type="number"
                     label="invoicenumber"
                     name="invoicenumber"
                     placeholder="Enter invoicenumber"
                     className=" p-2 m-1 w-full   rounded border-2 border-blue-200"
                   />
-                  <div className="flex justify-center">
+                  <div className="flex justify-left pl-3">
                     {props.errors.invoicenumber &&
                     props.touched.invoicenumber ? (
                       <p className="  text-red-600">
@@ -283,7 +305,7 @@ const FormData = (props) => {
                     name="invoicedate"
                     className="  p-2 m-1 w-full   rounded border-2  border-blue-200"
                   />
-                  <div className="flex justify-center">
+                  <div className="flex justify-left pl-3">
                     {props.errors.invoicedate && props.touched.invoicedate ? (
                       <p className="  text-red-600">
                         {props.errors.invoicedate}
@@ -316,7 +338,7 @@ const FormData = (props) => {
                       placeholder="Enter Client address"
                       className="  p-2 m-1 w-full   rounded border-2  border-blue-200"
                     />
-                    <div className="flex justify-center">
+                    <div className="flex justify-left pl-3">
                       {props.errors.clientaddress &&
                       props.touched.clientaddress ? (
                         <p className="  text-red-600">
@@ -337,7 +359,7 @@ const FormData = (props) => {
                       placeholder="Enter clientstate"
                       className=" p-2 m-1 w-full   rounded border-2 border-blue-200"
                     />
-                    <div className="flex justify-center">
+                    <div className="flex justify-left pl-3">
                       {props.errors.clientstate && props.touched.clientstate ? (
                         <p className="  text-red-600">
                           {props.errors.clientstate}
@@ -352,14 +374,19 @@ const FormData = (props) => {
                     </label>
 
                     <Field
-                      type="text"
+                      type="number"
+                      max="999999"
                       label="clientpin"
                       name="clientpin"
                       placeholder="Enter client pincode"
                       className="  p-2 m-1 w-full   rounded border-2  border-blue-200"
                     />
-                    <div className="flex justify-center">
-                      {props.errors.clientpin && props.touched.clientpin ? (
+                    <div className="flex justify-left pl-3">
+                      {props.errors.clientpin === "Invalid" ? (
+                        <p className="  text-red-600">
+                          {props.errors.clientpin}
+                        </p>
+                      ) : props.errors.clientpin && props.touched.clientpin ? (
                         <p className="  text-red-600">
                           {props.errors.clientpin}
                         </p>

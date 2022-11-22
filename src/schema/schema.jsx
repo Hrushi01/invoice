@@ -4,7 +4,13 @@ export const schema = Yup.object({
   name: Yup.string().min(2, "Required").max(40).required("Required"),
   address: Yup.string().required("Required"),
   state: Yup.string().required("Required"),
-  pin: Yup.number().typeError("Invalid").required("Required"),
+  city: Yup.string().required("Required"),
+
+  pin: Yup.number()
+    .typeError("Invalid")
+    .positive("Invalid")
+    .max(999999, "Invalid")
+    .required("Required"),
 
   holdername: Yup.string().min(2).max(25).required("Required"),
   accnumber: Yup.number().typeError("Invalid").required("Required"),
@@ -14,6 +20,10 @@ export const schema = Yup.object({
   clientname: Yup.string().min(2, "Required").required("Required"),
   clientaddress: Yup.string().required("Required"),
   clientstate: Yup.string().required("Required"),
-  clientpin: Yup.number().typeError("Invalid").required("Required"),
+  clientpin: Yup.number()
+    .typeError("Invalid")
+    .positive("Invalid")
+    .max(999999, "Invalid")
+    .required("Required"),
   invoicenumber: Yup.number().typeError("Invalid").required("Required"),
 });

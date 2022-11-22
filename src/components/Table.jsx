@@ -19,16 +19,20 @@ function Table({ data, setSum }) {
                 <td className="w-30 ">Unit Price</td>
                 <td className="w-30 ">Total</td>
               </tr>
-              <tr>
-                <td className="w-1/6 ">{item.quantity}</td>
+              {item.quantity && item.description && item.price ? (
+                <tr>
+                  <td className="w-1/6 p-2 ">{item.quantity}</td>
 
-                <td className="w-2/4">{item.description}</td>
-                <td>{item.price}</td>
-                <td className="w-1/6">{calTot(index)}</td>
-                <td className="hidden">{(total += calTot(index))}</td>
-                {console.log(total, "total")}
-                {setSum(total)}
-              </tr>
+                  <td className="w-2/4">{item.description}</td>
+                  <td>{item.price}</td>
+                  <td className="w-1/6">{calTot(index)}</td>
+                  <td className="hidden">{(total += calTot(index))}</td>
+                  {console.log(total, "total")}
+                  {setSum(total)}
+                </tr>
+              ) : (
+                <></>
+              )}
             </table>
           </div>
         );
