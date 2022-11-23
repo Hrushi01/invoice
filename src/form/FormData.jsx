@@ -1,9 +1,11 @@
 import React from "react";
 import { Formik, Form, Field, FieldArray } from "formik";
 import { schema } from "../schema/schema";
+import { useNavigate } from "react-router-dom";
 
 const FormData = (props) => {
   const { data, setShowInvoice, setData } = props;
+  const navigate = useNavigate();
   let sum = 0;
   const calTot = (index) => {
     let pr = data?.list[index]?.quantity * data?.list[index]?.price;
@@ -12,11 +14,12 @@ const FormData = (props) => {
   };
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center pt-16">
       <Formik
         initialValues={data}
         validationSchema={schema}
         onSubmit={() => {
+          navigate("/templates");
           console.log("done");
           setShowInvoice(true);
         }}>

@@ -5,9 +5,11 @@ import { FaInnosoft } from "react-icons/fa";
 import Total from "./Total";
 import Footer from "./Footer";
 import Table2 from "../../components/Table2";
+import { useNavigate } from "react-router-dom";
 
 function Invoice2(props) {
   const { data, setShowInvoice } = props;
+  const navigate = useNavigate();
 
   const componentRef = useRef();
   const [sum, setSum] = useState("");
@@ -16,21 +18,9 @@ function Invoice2(props) {
   });
   return (
     <>
-      <div className=" relative z-12 ">
-        <div className=" mt-5  absolute   ">
-          <button
-            onClick={() => setShowInvoice(false)}
-            className=" bg-blue-600 text-white rounded p-2 mr-5 m-3 bottom-4 ">
-            Edit details
-          </button>
-          <button
-            onClick={handelprint}
-            className=" bg-blue-600 text-white rounded p-2 bottom-4 ">
-            Print Invoice{" "}
-          </button>
-        </div>
+      <div className="  z-12 pt-16 ">
         <main
-          className="m-5 mb-1  xl:max-w-4xl xl:mx-auto p-10   bg-white rounded shadow "
+          className="m-5 mb-1 mt-0  xl:max-w-4xl xl:mx-auto p-10   bg-white rounded shadow relative"
           ref={componentRef}>
           {/* Header */}
           {/* Header */}
@@ -85,6 +75,18 @@ function Invoice2(props) {
           <Total data={data} sum={sum} />
           <Footer data={data} />
         </main>
+        <div className="    xl:max-w-4xl xl:mx-auto  pl-80 absolute     ">
+          <button
+            onClick={() => navigate("/")}
+            className=" bg-blue-600 text-white rounded mr-5 m-3 p-2 bottom-4 ">
+            Edit details
+          </button>
+          <button
+            onClick={handelprint}
+            className=" bg-blue-600 text-white rounded p-2 bottom-4 ">
+            Print Invoice{" "}
+          </button>
+        </div>
       </div>
     </>
   );

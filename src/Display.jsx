@@ -1,5 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+
+import Screen from "./screen/Screen";
 
 import FormData from "./form/FormData";
 import Invoice from "./invoice/invoice1/Invoice";
@@ -7,7 +10,6 @@ import { FaIndent } from "react-icons/fa";
 import Invoice2 from "./invoice/invoice2/Invoice2";
 
 function Display() {
-  const [showInvoice, setShowInvoice] = useState(false);
   const [data, setData] = useState({
     name: "Hrushikesh Ambike",
     address: "b1-101,skskskskss",
@@ -57,7 +59,7 @@ function Display() {
 
   return (
     <>
-      <div className="flex justify-between  fixed w-full bg-slate-300 z-10">
+      <div className="flex justify-between h-14  fixed w-full bg-slate-300 z-10">
         <div className="p-3 flex text-blue-600 pl-56">
           <FaIndent className="text-4xl" />
           <div className=" text-2xl pl-2">Invoice Builder</div>
@@ -66,23 +68,16 @@ function Display() {
           Create and Download your Invoice for free Now!!
         </div>
       </div>
-      <div className="bg-indigo-50 p-12 z-1">
-        {showInvoice ? (
-          <>
-            <div className="grid grid-cols-2  gap-10">
-              <Invoice setShowInvoice={setShowInvoice} data={data} />
-              <Invoice2 setShowInvoice={setShowInvoice} data={data} />
-            </div>
-          </>
-        ) : (
-          // <>Hello/</>
-          <FormData
-            setShowInvoice={setShowInvoice}
-            data={data}
-            setData={setData}
-          />
-        )}
-      </div>
+      <Routes>
+        <Route path="/templates" element={<Screen data={data} />}></Route>
+        <Route
+          path="/"
+          element={<FormData data={data} setData={setData} />}></Route>
+
+        <Route path="/template1" element={<Invoice data={data} />}></Route>
+        <Route path="/template2" element={<Invoice2 data={data} />}></Route>
+      </Routes>
+      <div></div>
     </>
   );
 }
