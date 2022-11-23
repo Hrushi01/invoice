@@ -11,45 +11,27 @@ import Invoice2 from "./invoice/invoice2/Invoice2";
 
 function Display() {
   const [data, setData] = useState({
-    name: "Hrushikesh Ambike",
-    address: "b1-101,skskskskss",
-    state: "Maharashtra",
-    city: "Pune",
-    pin: "411028",
+    name: "",
+    address: "",
+    state: "",
+    city: "",
+    pin: "",
 
-    holdername: "hruhsikesh Ambike",
-    accnumber: "44554455",
-    IFSC: "sbi555",
-    bankname: "bank of baroda",
+    holdername: "",
+    accnumber: "",
+    IFSC: "",
+    bankname: "",
 
-    clientname: "Takiot sol",
-    clientaddress: "b1-101,silverstone",
-    clientstate: "maharashtra",
-    clientpin: "411028",
-    invoicenumber: "5151515",
-    invoicedate: "12-5-2001",
+    clientname: "",
+    clientaddress: "",
+    clientstate: "",
+    clientpin: "",
+    invoicenumber: "",
+    invoicedate: "",
 
     list: [
       {
-        quantity: "2",
-        description: "ddds",
-        price: "2",
-        total: null,
-      },
-      {
-        quantity: "2",
-        description: "ddds",
-        price: "2",
-        total: null,
-      },
-      {
-        quantity: "2",
-        description: "ddds",
-        price: "2",
-        total: null,
-      },
-      {
-        quantity: "2",
+        quantity: "",
         description: "",
         price: "",
         total: null,
