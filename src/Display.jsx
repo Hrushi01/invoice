@@ -16,6 +16,7 @@ function Display() {
     state: "",
     city: "",
     pin: "",
+    file: null,
 
     holdername: "",
     accnumber: "",
@@ -41,12 +42,16 @@ function Display() {
 
   return (
     <>
-      <div className="flex justify-between h-14  fixed w-full bg-slate-300 z-10">
-        <div className="p-3 flex text-blue-600 pl-56">
-          <FaIndent className="text-4xl" />
-          <div className=" text-2xl pl-2">Invoice Builder</div>
+      <div className="flex justify-between h-14  fixed w-full bg-slate-300 z-10 ">
+        <div className="p-3 flex text-blue-600 xl:pl-56 md:lg:sm:pl-2">
+          <div className="lg:xl:text-4xl sm:md:text-2xl p-1">
+            <FaIndent />
+          </div>
+          <div className=" xl:lg:text-4xl pl-2 pb-2 md:sm:text-2xl ">
+            Invoice Builder
+          </div>
         </div>
-        <div className="p-3 text-xl flex italic text-blue-500 pr-56 justify-end   ">
+        <div className="p-3 text-xl flex italic text-blue-500 xl:pr-56 justify-end sm:md:lg:pr-2  md:sm:text-2xl  ">
           Create and Download your Invoice for free Now!!
         </div>
       </div>

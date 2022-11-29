@@ -12,20 +12,29 @@ function Total(props) {
         <div className="flex">
           <div className="font-semibold">TOTAL AMOUNT:</div>
         </div>
-        <Textfit mode="single" forceSingleModeWidth={false} className="  ">
-          ${sum}55555555
+        <Textfit
+          mode="single"
+          forceSingleModeWidth={false}
+          className="text-lg  ">
+          ${sum}
         </Textfit>
 
         <div className="flex">
           <div className="font-semibold">TAX (18%): </div>
         </div>
-        <Textfit mode="single" forceSingleModeWidth={false} className="  ">
+        <Textfit
+          mode="single"
+          forceSingleModeWidth={false}
+          className="text-lg  ">
           ${tax}
         </Textfit>
         <div className="flex">
           <div className="font-semibold">Amount Due: </div>
         </div>
-        <Textfit mode="single" forceSingleModeWidth={false} className="  ">
+        <Textfit
+          mode="single"
+          forceSingleModeWidth={false}
+          className=" text-lg ">
           ${total}
         </Textfit>
       </div>

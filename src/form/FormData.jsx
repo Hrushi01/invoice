@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Formik, Form, Field, FieldArray } from "formik";
 import { schema } from "../schema/schema";
 import { useNavigate } from "react-router-dom";
+import { FaUpload } from "react-icons/fa";
+import { TiTick } from "react-icons/ti";
 
 const FormData = (props) => {
   const { data, setShowInvoice, setData } = props;
+  const fileref = useRef(null);
+
   const navigate = useNavigate();
   let sum = 0;
   const calTot = (index) => {
@@ -51,6 +55,48 @@ const FormData = (props) => {
                 </div>
               </div>
 
+              {/* pic below  */}
+              {/* pic below  */}
+              {/* pic below  */}
+              {/* pic below  */}
+              {/* pic below  */}
+              {/* pic below  */}
+              <div className="flex flex-col justify-start  p-2 ">
+                <label className="flex justify-start font-bold font-serif text-lg text-gray-600 pl-1">
+                  Logo:
+                </label>
+                <input
+                  ref={fileref}
+                  hidden
+                  type="file"
+                  label="Image"
+                  className=" p-3 m-1   rounded border-2 "
+                  onChange={(e) => {
+                    props.setFieldValue("file", e.target.files[0]);
+                  }}
+                />
+                <div className="flex ">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      fileref.current.click();
+                    }}
+                    className="flex  bg-blue-600 text-white rounded p-2 w-fit m-2 pr-3">
+                    Upload &nbsp;
+                    <div className="pt-1">
+                      <FaUpload />
+                    </div>
+                  </button>
+                  {props.values.file ? (
+                    <div className="text-5xl pt-1 text-green-400">
+                      <TiTick className="" />
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                </div>
+              </div>
+
               {/*User Address */}
               {/*User Address */}
               {/*User Address */}
@@ -60,7 +106,7 @@ const FormData = (props) => {
                 <label className="flex justify-start pl-3 font-bold font-sans text-xl text-gray-800 mt-4">
                   Address:
                 </label>
-                <div className="  grid grid-cols-4  gap-5  p-2  ">
+                <div className="  grid xl:2xl:grid-cols-4  gap-5  p-2  sm:grid-cols-2 ">
                   <div className="">
                     <label className="flex justify-start pl-1 font-bold font-serif text-base text-gray-600">
                       Flat No,Building,etc:
@@ -153,7 +199,7 @@ const FormData = (props) => {
                   Account Details:
                 </label>
 
-                <div className="  grid grid-cols-2  gap-5 gap-y-3  p-2  ">
+                <div className="  grid md:grid-cols-2  gap-5 gap-y-3  p-2 sm:grid-cols-1  ">
                   <div className="">
                     <label className="flex justify-start pl-1 font-bold font-serif text-base text-gray-600">
                       Account Holder Name:
@@ -274,9 +320,9 @@ const FormData = (props) => {
               {/* invoice details  */}
               {/* invoice details  */}
 
-              <div className="  grid grid-cols-2  gap-10  p-2  ">
+              <div className="  grid grid-cols-2  gap-10  p-2  sm:gap-1 lg:gap-10 ">
                 <div className="   ">
-                  <label className="flex justify-start pl-1 font-bold font-serif text-lg text-gray-600">
+                  <label className="flex justify-start pl-1 font-bold font-serif text-lg text-gray-600 ">
                     Invoice Number:
                   </label>
 
@@ -328,7 +374,7 @@ const FormData = (props) => {
                 <label className="flex justify-start pl-3 font-bold font-sans text-xl text-gray-800 mt-4">
                   Client Address:
                 </label>
-                <div className="  grid grid-cols-3  gap-10  p-2  ">
+                <div className="  grid md:grid-cols-1 sm:gap-1  lg:grid-cols-3 lg:gap-10  p-2 sm:grid-cols-2  ">
                   <div className="">
                     <label className="flex justify-start pl-1 font-bold font-serif text-base text-gray-600">
                       Flat No,Building,etc:
@@ -460,7 +506,7 @@ const FormData = (props) => {
                                         />
                                       </div>
                                     </div>
-                                    <div className="grid grid-cols-3  gap-10  p-2 w-full ">
+                                    <div className="grid grid-cols-3  md:gap-5 lg:gap-10  p-2 w-full sm:gap-2  ">
                                       <div className=" flex-col    flex">
                                         <label
                                           className="flex justify-start pl-1 font-bold font-serif text-lg text-gray-600"

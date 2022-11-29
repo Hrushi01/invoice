@@ -1,15 +1,23 @@
 import React from "react";
 import { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
-import { FaInnosoft } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 import Total from "./Total";
 import Footer from "./Footer";
 import Table2 from "../../components/Table2";
 import { useNavigate } from "react-router-dom";
 
 function Invoice2(props) {
-  const { data, setShowInvoice } = props;
+  const { data } = props;
   const navigate = useNavigate();
+
+  const [pic, setpic] = useState(null);
+
+  const reader = new FileReader();
+  reader.readAsDataURL(data.file);
+  reader.onload = () => {
+    setpic(reader.result);
+  };
 
   const componentRef = useRef();
   const [sum, setSum] = useState("");
@@ -30,7 +38,11 @@ function Invoice2(props) {
 
           <div className="p-5 flex justify-between border-b-8 border-black ">
             <div className="flex text-4xl  ">
-              <FaInnosoft className="font-semibold mt-1 text-gray-600  " />
+              <div
+                className="profile w-20 bg-slate-400 h-20 rounded-full overflow-hidden  bg-cover pr-1"
+                style={{
+                  backgroundImage: `url(${pic})`,
+                }}></div>{" "}
               <div className="font-hmedium w-60 font-serif text-gray-600 ">
                 {data.name}
               </div>
@@ -75,7 +87,12 @@ function Invoice2(props) {
           <Total data={data} sum={sum} />
           <Footer data={data} />
         </main>
-        <div className="    xl:max-w-4xl xl:mx-auto  pl-80 absolute     ">
+        <div className=" flex   xl:max-w-4xl xl:mx-auto  xl:pl-80 absolute  sm:text-base sm:pl-5   ">
+          <button
+            onClick={() => navigate("/templates")}
+            className=" bg-blue-600 w-24 text-white rounded mr-5 m-3 p-2 bottom-4 flex justify-center items-center ">
+            <FaArrowLeft className=" " /> &nbsp; Back
+          </button>
           <button
             onClick={() => navigate("/")}
             className=" bg-blue-600 text-white rounded mr-5 m-3 p-2 bottom-4 ">
@@ -83,7 +100,7 @@ function Invoice2(props) {
           </button>
           <button
             onClick={handelprint}
-            className=" bg-blue-600 text-white rounded p-2 bottom-4 ">
+            className=" bg-blue-600 text-white rounded p-2 m-3 bottom-4 ">
             Print Invoice{" "}
           </button>
         </div>
