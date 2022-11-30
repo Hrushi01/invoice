@@ -39,6 +39,7 @@ function Display() {
       },
     ],
   });
+  const [picture, setpicture] = useState(null);
 
   return (
     <>
@@ -59,10 +60,19 @@ function Display() {
         <Route path="/templates" element={<Screen data={data} />}></Route>
         <Route
           path="/"
-          element={<FormData data={data} setData={setData} />}></Route>
+          element={
+            <FormData
+              data={data}
+              setData={setData}
+              picture={picture}
+              setpicture={setpicture}
+            />
+          }></Route>
 
         <Route path="/template1" element={<Invoice data={data} />}></Route>
-        <Route path="/template2" element={<Invoice2 data={data} />}></Route>
+        <Route
+          path="/template2"
+          element={<Invoice2 data={data} picture={picture} />}></Route>
       </Routes>
       <div></div>
     </>

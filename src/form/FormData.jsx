@@ -2,12 +2,11 @@ import React, { useRef } from "react";
 import { Formik, Form, Field, FieldArray } from "formik";
 import { schema } from "../schema/schema";
 import { useNavigate } from "react-router-dom";
-import { FaUpload } from "react-icons/fa";
-import { TiTick } from "react-icons/ti";
+import { FaUpload, FaCameraRetro } from "react-icons/fa";
 
 const FormData = (props) => {
-  const { data, setShowInvoice, setData } = props;
-  const fileref = useRef(null);
+  const { data, setShowInvoice, setData, picture, setpicture } = props;
+  const img = useRef(null);
 
   const navigate = useNavigate();
   let sum = 0;
@@ -25,7 +24,6 @@ const FormData = (props) => {
         onSubmit={() => {
           navigate("/templates");
           console.log("done");
-          setShowInvoice(true);
         }}>
         {(props) => (
           <Form className="flex flex-col  bg-white  w-3/4 shadow justify-center items-center m-2 p-2">
@@ -65,35 +63,53 @@ const FormData = (props) => {
                 <label className="flex justify-start font-bold font-serif text-lg text-gray-600 pl-1">
                   Logo:
                 </label>
-                <input
-                  ref={fileref}
-                  hidden
-                  type="file"
-                  label="Image"
-                  className=" p-3 m-1   rounded border-2 "
-                  onChange={(e) => {
-                    props.setFieldValue("file", e.target.files[0]);
-                  }}
-                />
-                <div className="flex ">
+
+                <div className="flex  w-2/4 justify-around">
                   <button
                     type="button"
                     onClick={() => {
-                      fileref.current.click();
+                      img.current.click();
                     }}
-                    className="flex  bg-blue-600 text-white rounded p-2 w-fit m-2 pr-3">
+                    className="flex  bg-blue-600 text-white rounded p-2 w-fit m-2 pr-3 h-fit">
                     Upload &nbsp;
                     <div className="pt-1">
                       <FaUpload />
                     </div>
                   </button>
-                  {props.values.file ? (
-                    <div className="text-5xl pt-1 text-green-400">
-                      <TiTick className="" />
+                  <div className="flex flex-col w-20 h-20 relative">
+                    <img
+                      src={
+                        picture
+                          ? picture
+                          : "https://via.placeholder.com/150.png?text=Logo"
+                      }
+                      alt="img"
+                      className="w-full h-full rounded-full shadow-md"
+                    />
+                    <div className="absolute bottom-0 right-0 rounded-full z-10 p-1 bg-white items-center justify-center flex">
+                      <div
+                        className="bg-black p-1 rounded-full cursor-pointer "
+                        onClick={() => {
+                          img.current.click();
+                        }}>
+                        <FaCameraRetro
+                          color={"white"}
+                          width="20px"
+                          height="20px"
+                        />
+                      </div>
                     </div>
-                  ) : (
-                    <></>
-                  )}
+                  </div>
+                  <input
+                    ref={img}
+                    type="file"
+                    hidden
+                    accept="image/*"
+                    onChange={(e) => {
+                      let pic = URL.createObjectURL(e.target.files[0]);
+                      setpicture(pic);
+                    }}
+                  />
                 </div>
               </div>
 

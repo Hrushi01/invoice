@@ -8,16 +8,8 @@ import Table2 from "../../components/Table2";
 import { useNavigate } from "react-router-dom";
 
 function Invoice2(props) {
-  const { data } = props;
+  const { data, picture } = props;
   const navigate = useNavigate();
-
-  const [pic, setpic] = useState(null);
-
-  const reader = new FileReader();
-  reader.readAsDataURL(data.file);
-  reader.onload = () => {
-    setpic(reader.result);
-  };
 
   const componentRef = useRef();
   const [sum, setSum] = useState("");
@@ -41,7 +33,7 @@ function Invoice2(props) {
               <div
                 className="profile w-20 bg-slate-400 h-20 rounded-full overflow-hidden  bg-cover pr-1"
                 style={{
-                  backgroundImage: `url(${pic})`,
+                  backgroundImage: `url(${picture})`,
                 }}></div>{" "}
               <div className="font-hmedium w-60 font-serif text-gray-600 ">
                 {data.name}
