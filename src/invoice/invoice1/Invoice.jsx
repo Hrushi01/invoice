@@ -33,13 +33,14 @@ function Invoice(props) {
         <ClientDetails data={data} />
 
         <Table data={data} sum={sum} setSum={setSum} />
+
         <TotalAmt data={data} sum={sum} />
       </main>
       <div className="  flex  xl:max-w-4xl xl:mx-auto  xl:pl-80 absolute sm:text-base sm:pl-5     ">
         <button
           onClick={() => navigate("/templates")}
           className=" bg-blue-600 w-24 text-white rounded mr-5 m-3 p-2 bottom-4 flex justify-center items-center ">
-          <FaArrowLeft className=" " /> &nbsp; Back
+          <FaArrowLeft /> &nbsp; Back
         </button>
         <button
           onClick={() => navigate("/")}

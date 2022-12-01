@@ -11,34 +11,62 @@ import Invoice2 from "./invoice/invoice2/Invoice2";
 
 function Display() {
   const [data, setData] = useState({
-    name: "",
-    address: "",
-    state: "",
-    city: "",
-    pin: "",
+    name: "hrusih",
+    address: "eehheheheh",
+    state: "Maharashtra",
+    city: "Pune",
+    pin: "411028",
     file: null,
 
-    holdername: "",
-    accnumber: "",
-    IFSC: "",
-    bankname: "",
+    holdername: "Trakiot",
+    accnumber: "411255",
+    IFSC: "hfhf44",
+    bankname: "nnfnfnfn",
 
-    clientname: "",
-    clientaddress: "",
-    clientstate: "",
-    clientpin: "",
-    invoicenumber: "",
+    clientname: "trakiot",
+    clientaddress: "hthhthth",
+    clientstate: "jtjtjtjjt",
+    clientpin: "422515",
+    invoicenumber: "11451",
     invoicedate: "",
 
     list: [
       {
-        quantity: "",
-        description: "",
-        price: "",
+        quantity: 4,
+        description: "dndndn",
+        price: 5,
         total: null,
       },
     ],
   });
+  // const [data, setData] = useState({
+  //   name: "",
+  //   address: "",
+  //   state: "",
+  //   city: "",
+  //   pin: "",
+  //   file: null,
+
+  //   holdername: "",
+  //   accnumber: "",
+  //   IFSC: "",
+  //   bankname: "",
+
+  //   clientname: "",
+  //   clientaddress: "",
+  //   clientstate: "",
+  //   clientpin: "",
+  //   invoicenumber: "",
+  //   invoicedate: "",
+
+  //   list: [
+  //     {
+  //       quantity: "",
+  //       description: "",
+  //       price: "",
+  //     },
+  //   ],
+  // });
   const [picture, setpicture] = useState(null);
 
   return (

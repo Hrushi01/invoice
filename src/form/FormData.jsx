@@ -5,13 +5,14 @@ import { useNavigate } from "react-router-dom";
 import { FaUpload, FaCameraRetro } from "react-icons/fa";
 
 const FormData = (props) => {
-  const { data, setShowInvoice, setData, picture, setpicture } = props;
+  const { data, setData, picture, setpicture } = props;
   const img = useRef(null);
 
   const navigate = useNavigate();
   let sum = 0;
   const calTot = (index) => {
-    let pr = data?.list[index]?.quantity * data?.list[index]?.price;
+    var pr = "0";
+    pr = data?.list[index]?.quantity * data?.list[index]?.price;
     sum = sum + pr;
     return pr;
   };
@@ -23,7 +24,6 @@ const FormData = (props) => {
         validationSchema={schema}
         onSubmit={() => {
           navigate("/templates");
-          console.log("done");
         }}>
         {(props) => (
           <Form className="flex flex-col  bg-white  w-3/4 shadow justify-center items-center m-2 p-2">
@@ -522,7 +522,7 @@ const FormData = (props) => {
                                         />
                                       </div>
                                     </div>
-                                    <div className="grid grid-cols-3  md:gap-5 lg:gap-10  p-2 w-full sm:gap-2  ">
+                                    <div className="grid grid-cols-2  md:gap-5 lg:gap-10  p-2 w-full sm:gap-2  ">
                                       <div className=" flex-col    flex">
                                         <label
                                           className="flex justify-start pl-1 font-bold font-serif text-lg text-gray-600"
@@ -554,7 +554,7 @@ const FormData = (props) => {
                                           className="  p-2 m-1 w-full   rounded border-2  border-blue-200"
                                         />
                                       </div>
-                                      <div className="">
+                                      <div className="hidden">
                                         <label
                                           className="flex justify-start pl-1 font-bold font-serif text-lg text-gray-600"
                                           htmlFor={`list.${index}.total`}>
@@ -562,7 +562,10 @@ const FormData = (props) => {
                                         </label>
                                         <Field
                                           disabled
-                                          value={calTot(index)}
+                                          hidden
+                                          value={
+                                            calTot(index) ? calTot(index) : 0
+                                          }
                                           className="  p-2 m-1 w-full   rounded border-2  border-blue-200"
                                           label={`list.${index}.total`}
                                           name={`list.${index}.total`}
@@ -582,12 +585,11 @@ const FormData = (props) => {
                           className="float-right flex   text-blue-600 p-1 italic rounded-xl"
                           onClick={() => {
                             arrayhelpers.insert(props.values.list.length + 1, {
-                              quantity: "",
+                              quantity: 0,
                               description: "",
-                              price: "",
-                              total: "",
+                              price: 0,
+                              total: null,
                             });
-                            console.log("gdgd");
                           }}>
                           Add Item+
                         </button>
@@ -597,13 +599,15 @@ const FormData = (props) => {
                 }}
               />
             </div>
+            {/* {datahandler(props)} */}
             <button
               type="submit"
-              className=" bg-blue-600 text-white rounded p-2 bottom-4 ">
+              className=" bg-blue-600 text-white rounded p-2 bottom-4 "
+              onClick={() => {
+                setData(props.values);
+              }}>
               Submit
             </button>
-            {console.log(props.errors, "Props.erros")}
-            {setData(props.values)}
           </Form>
         )}
       </Formik>
