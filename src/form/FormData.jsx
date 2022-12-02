@@ -2,7 +2,8 @@ import React, { useRef } from "react";
 import { Formik, Form, Field, FieldArray } from "formik";
 import { schema } from "../schema/schema";
 import { useNavigate } from "react-router-dom";
-import { FaUpload, FaCameraRetro } from "react-icons/fa";
+import { FaCameraRetro } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md";
 
 const FormData = (props) => {
   const { data, setData, picture, setpicture } = props;
@@ -64,19 +65,8 @@ const FormData = (props) => {
                   Logo:
                 </label>
 
-                <div className="flex  w-2/4 justify-around">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      img.current.click();
-                    }}
-                    className="flex  bg-blue-600 text-white rounded p-2 w-fit m-2 pr-3 h-fit">
-                    Upload &nbsp;
-                    <div className="pt-1">
-                      <FaUpload />
-                    </div>
-                  </button>
-                  <div className="flex flex-col w-20 h-20 relative">
+                <div className="flex  w-2/4 ">
+                  <div className="flex flex-col w-20 h-20 relative ">
                     <img
                       src={
                         picture
@@ -99,6 +89,19 @@ const FormData = (props) => {
                         />
                       </div>
                     </div>
+                    {picture ? (
+                      <div className="absolute top-0 right-0 rounded-full z-10   bg-transparent items-center justify-center flex">
+                        <div
+                          className="  rounded-full cursor-pointer text-2xl bg-white p-0.5 "
+                          onClick={() => {
+                            setpicture(null);
+                          }}>
+                          <MdDeleteForever color={"red"} />
+                        </div>
+                      </div>
+                    ) : (
+                      <></>
+                    )}
                   </div>
                   <input
                     ref={img}
