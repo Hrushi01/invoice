@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Formik, Form, Field, FieldArray } from "formik";
+import { Formik, Form, Field, FieldArray, ErrorMessage } from "formik";
 import { schema } from "../schema/schema";
 import { useNavigate } from "react-router-dom";
 import { FaCameraRetro } from "react-icons/fa";
@@ -523,6 +523,15 @@ const FormData = (props) => {
                                           placeholder="Description"
                                           className=" p-2 m-1 w-full   rounded border-2 border-blue-200"
                                         />
+                                        {console.log(
+                                          props.errors.list,
+                                          "ERRORS"
+                                        )}
+                                        <div className="text-red-600 flex justify-left pl-3">
+                                          <ErrorMessage
+                                            name={`list.${index}.description`}
+                                          />
+                                        </div>
                                       </div>
                                     </div>
                                     <div className="grid grid-cols-2  md:gap-5 lg:gap-10  p-2 w-full sm:gap-2  ">
@@ -540,6 +549,11 @@ const FormData = (props) => {
                                           placeholder="Enter your Quantity"
                                           className=" p-2 m-1 w-full   rounded border-2 border-blue-200"
                                         />
+                                        <div className="text-red-600 flex justify-left pl-3">
+                                          <ErrorMessage
+                                            name={`list.${index}.quantity`}
+                                          />
+                                        </div>
                                       </div>
 
                                       <div className=" flex flex-col">

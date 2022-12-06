@@ -28,18 +28,18 @@ function Invoice2(props) {
           {/* Header */}
           {/* Header */}
 
-          <div className="p-5 flex justify-between border-b-8 border-black ">
-            <div className="flex text-4xl  ">
+          <div className="p-5 grid  grid-cols-2 border-b-8 border-black items-center ">
+            <div className=" text-4xl  flex gap-0  ">
               <div
                 className="profile w-20 bg-slate-400 h-20 rounded-full overflow-hidden  bg-cover pr-1"
                 style={{
                   backgroundImage: `url(${picture})`,
                 }}></div>{" "}
-              <div className="font-hmedium w-60 font-serif text-gray-600 ">
+              <div className="font-medium w-60  font-serif text-gray-600  flex justify-center items-center text-center  ">
                 {data.name}
               </div>
             </div>
-            <div className="text-gray-600 text-sm font-serif ">
+            <div className="text-gray-600 text-sm font-serif  ">
               <div className="flex justify-end">{data.address}</div>
               <div className="flex justify-end">{data.state}</div>
               <div className="flex justify-end">Pincode-{data.pin}</div>
