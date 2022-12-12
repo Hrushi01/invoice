@@ -5,7 +5,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import Total from "./Total";
 import Footer from "./Footer";
 import Table2 from "../../components/Table2";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 function Invoice2(props) {
   const { data, picture } = props;

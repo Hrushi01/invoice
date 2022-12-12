@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Formik, Form, Field, FieldArray, ErrorMessage } from "formik";
 import { schema } from "../schema/schema";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { FaCameraRetro } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 
@@ -523,10 +523,10 @@ const FormData = (props) => {
                                           placeholder="Description"
                                           className=" p-2 m-1 w-full   rounded border-2 border-blue-200"
                                         />
-                                        {console.log(
+                                        {/* {console.log(
                                           props.errors.list,
                                           "ERRORS"
-                                        )}
+                                        )} */}
                                         <div className="text-red-600 flex justify-left pl-3">
                                           <ErrorMessage
                                             name={`list.${index}.description`}

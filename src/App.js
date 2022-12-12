@@ -1,12 +1,12 @@
 import Display from "./Display";
-import { BrowserRouter } from "react-router-dom";
+import { Router } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Display />
-      </BrowserRouter>
+      {/* <Router> */}
+      <Display />
+      {/* </Router> */}
     </>
   );
 }

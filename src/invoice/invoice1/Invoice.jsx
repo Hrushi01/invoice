@@ -9,7 +9,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import TotalAmt from "../../components/TotalAmt";
 import { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 function Invoice(props) {
   const { data } = props;
@@ -26,7 +26,7 @@ function Invoice(props) {
       <main
         className="m-5 mt-0 mb-0 pt-10  p-5 xl:max-w-4xl xl:mx-auto  bg-white rounded shadow"
         ref={componentRef}>
-        <Header handelprint={handelprint} data={data} />
+        <Header handelprint={handelprint} data={data} data-testid="header" />
 
         <Address data={data} />
 
