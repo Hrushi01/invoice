@@ -1,5 +1,5 @@
-import Display from "./Display";
-import { Router } from "react-router-dom";
+import Display from "./pages";
+// import { Router } from "react-router-dom";
 
 function App() {
   return (

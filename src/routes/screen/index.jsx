@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import template1 from "../images/template1.png";
-import template2 from "../images/template2.png";
+import template1 from "../../assets/images/template1.png";
+import template2 from "../../assets/images/template2.png";
 
 function Screen(props) {
   return (

@@ -2,9 +2,9 @@ import React from "react";
 import { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
 import { FaArrowLeft } from "react-icons/fa";
-import Total from "./Total";
-import Footer from "./Footer";
-import Table2 from "../../components/Table2";
+import Total from "../../../components/Total2";
+import Footer from "../../../components/Footer2";
+import Table2 from "../../../components/Table2";
 import { useNavigate } from "react-router";
 
 function Invoice2(props) {

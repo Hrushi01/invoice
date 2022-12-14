@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { Formik, Form, Field, FieldArray, ErrorMessage } from "formik";
-import { schema } from "../schema/schema";
+import { schema } from "../../schema/schema";
 import { useNavigate } from "react-router";
 import { FaCameraRetro } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";

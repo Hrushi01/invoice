@@ -3,12 +3,12 @@ import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import Screen from "./screen/Screen";
+import Screen from "../routes/screen";
 
-import FormData from "./form/FormData";
-import Invoice from "./invoice/invoice1/Invoice";
+import FormData from "../routes/form";
+import Invoice from "../routes/invoice/template1";
 import { FaIndent } from "react-icons/fa";
-import Invoice2 from "./invoice/invoice2/Invoice2";
+import Invoice2 from "../routes/invoice/template2";
 
 function Display() {
   const [data, setData] = useState({
