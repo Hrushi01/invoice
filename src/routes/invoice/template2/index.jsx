@@ -34,15 +34,24 @@ function Invoice2(props) {
                 className="profile w-20 bg-slate-400 h-20 rounded-full overflow-hidden  bg-cover pr-1"
                 style={{
                   backgroundImage: `url(${picture})`,
-                }}></div>{" "}
-              <div className="font-medium w-60  font-serif text-gray-600  flex justify-center items-center text-center  ">
+                }}
+                data-testid="logo"></div>{" "}
+              <div
+                className="font-medium w-60  font-serif text-gray-600  flex justify-center items-center text-center  "
+                data-testid="name">
                 {data.name}
               </div>
             </div>
             <div className="text-gray-600 text-sm font-serif  ">
-              <div className="flex justify-end">{data.address}</div>
-              <div className="flex justify-end">{data.state}</div>
-              <div className="flex justify-end">Pincode-{data.pin}</div>
+              <div className="flex justify-end" data-testid="address">
+                {data.address}
+              </div>
+              <div className="flex justify-end" data-testid="state">
+                {data.state}
+              </div>
+              <div className="flex justify-end" data-testid="pincode">
+                Pincode-{data.pin}
+              </div>
             </div>
           </div>
 
@@ -54,7 +63,7 @@ function Invoice2(props) {
           <div className="text-gray-700 mt-10 ">
             <span className="text-3xl">I</span>
             <span className="text-2xl">NVOICE:</span>
-            <span className="font-semibold text-2xl">
+            <span className="font-semibold text-2xl" data-testid="innumber">
               {" "}
               #{data.invoicenumber}
             </span>
@@ -62,7 +71,10 @@ function Invoice2(props) {
           <div>
             <span className="text-lg">D</span>
             <span className="text-xs">ATE ISSUED:</span>
-            <span className="font-semibold"> {data.invoicedate}</span>
+            <span className="font-semibold" data-testid="indate">
+              {" "}
+              {data.invoicedate}
+            </span>
           </div>
 
           {/* Table Below */}

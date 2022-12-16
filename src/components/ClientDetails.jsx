@@ -2,7 +2,7 @@ import React from "react";
 
 function ClientDetails({ data }) {
   return (
-    <div className="mt-5">
+    <div className="mt-5 h-full">
       <div className="grid grid-cols-2  gap-0">
         <div className="border-2 border-t-0 border-gray-400 p-2">
           <div className="font-bold font-serif">To:</div>

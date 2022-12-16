@@ -1,4 +1,4 @@
-import Display from "./pages";
+import Display from "./pages/display";
 // import { Router } from "react-router-dom";
 
 function App() {

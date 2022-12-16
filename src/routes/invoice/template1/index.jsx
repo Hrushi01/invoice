@@ -22,11 +22,11 @@ function Invoice(props) {
     content: () => componentRef.current,
   });
   return (
-    <div className=" relative pt-16 ">
+    <div className=" relative pt-16 h-full ">
       <main
-        className="m-5 mt-0 mb-0 pt-10  p-5 xl:max-w-4xl xl:mx-auto  bg-white rounded shadow"
+        className="m-5 mt-0 mb-0 pt-10 h-full  p-5 xl:max-w-4xl xl:mx-auto  bg-white rounded shadow"
         ref={componentRef}>
-        <Header handelprint={handelprint} data={data} data-testid="header" />
+        <Header handelprint={handelprint} data={data} />
 
         <Address data={data} />
 

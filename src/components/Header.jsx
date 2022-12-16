@@ -2,9 +2,8 @@ import React from "react";
 
 function Header({ handelprint, data }) {
   return (
-    <div>
-      {" "}
-      <header className=" flex flex-col items-center justify-center mb-5 xl:flex-row xl:justify-between">
+    <>
+      <header className=" flex flex-col items-center justify-center mb-5 xl:flex-row xl:justify-between h-full">
         <div>
           <h2 className="text-xl  font-bold">{data.name}</h2>
         </div>
@@ -27,7 +26,7 @@ function Header({ handelprint, data }) {
           </li>
         </ul> */}
       </header>
-    </div>
+    </>
   );
 }
 

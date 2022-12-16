@@ -1,33 +1,18 @@
-import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Display from "../Display";
-import FormData from "../form/FormData";
-import { Router, Route, Routes } from "react-router-dom";
+import Display from "../pages/display";
 
-test("Display", () => {
-  render(<Display />);
-  const lielement = screen.getByTestId("text");
-  //   console.log("jdjdjdjjdjd", lielement);
-  expect(lielement).toBeInTheDocument();
-});
-test("Display2", () => {
-  render(<Display />);
-  const lielement2 = screen.getByTestId("text2");
-  //   console.log("display", lielement);
-  expect(lielement2).toBeInTheDocument();
-});
+import { shallow } from "enzyme";
+import Enzyme from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+Enzyme.configure({ adapter: new Adapter() });
 
-test("testing formdata component", () => {
-  // const mockedUsedNavigate = jest.fn();
-
-  // jest.mock("react-router-dom", () => ({
-  //   ...jest.requireActual("react-router-dom"),
-  //   useNavigate: () => mockedUsedNavigate,
-  // }));
-  render(<FormData />);
-
-  const childElement = screen.getByRole("textbox");
-  // console.log("HELOOO", childElement);
-
-  expect(childElement).toBeInTheDocument();
+describe("Display Check", () => {
+  it("object check", () => {
+    let wrapper = shallow(<Display />);
+    expect(wrapper.exists(".text1")).toEqual(true);
+  });
+  it("object check2", () => {
+    let wrapper = shallow(<Display />);
+    expect(wrapper.exists(".text2")).toEqual(true);
+  });
 });

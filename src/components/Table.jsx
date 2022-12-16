@@ -10,7 +10,7 @@ function Table({ data, setSum }) {
     setSum(total);
   });
   return (
-    <div className="mt-5">
+    <div className="mt-5 h-full">
       {data.list.map((item, index) => {
         return (
           <div key={index}>

@@ -6,7 +6,7 @@ function TotalAmt(props) {
 
   return (
     <>
-      <div className="flex  justify-end mt-3">
+      <div className="flex h-full  justify-end mt-3">
         <div className=" grid grid-cols-2  gap-0  w-2/4 ">
           <div className="font-bold flex justify-start items-center">
             SUBTOTAL
@@ -14,7 +14,8 @@ function TotalAmt(props) {
           <Textfit
             mode="single"
             forceSingleModeWidth={false}
-            className="border-2 h-9 border-gray-400 border-t-0 p-1   ">
+            style={{ height: "100%" }}
+            className="border-2  border-gray-400 border-t-0 p-1  ">
             ${sum}
           </Textfit>
           <div className="flex  h-9">
@@ -24,20 +25,15 @@ function TotalAmt(props) {
               DUE
             </div>
           </div>
-          <div>
+          <div className="h-9">
             <Textfit
               mode="single"
               forceSingleModeWidth={false}
-              className="border-2 h-9 border-gray-400 border-t-0 p-1   ">
+              style={{ height: "100%" }}
+              className="border-2  border-gray-400 border-t-0 p-1   ">
               ${sum}
             </Textfit>
           </div>
-
-          {/* <div className="flex">
-          <div className="border-2 border-gray-400 border-t-0 w-24 flex items-end justify-end p-2 ">
-            <span className="invisible">Invoice</span>
-          </div>
-        </div> */}
         </div>
       </div>
       <div className="flex justify-center font-semibold mt-20 text-xl">

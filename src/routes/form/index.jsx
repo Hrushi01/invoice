@@ -6,10 +6,10 @@ import { FaCameraRetro } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 
 const FormData = (props) => {
+  const navigate = useNavigate();
   const { data, setData, picture, setpicture } = props;
   const img = useRef(null);
 
-  const navigate = useNavigate();
   let sum = 0;
   const calTot = (index) => {
     var pr = "0";
@@ -370,6 +370,7 @@ const FormData = (props) => {
                   <Field
                     type="date"
                     label="invoicedate"
+                    data-testid="invoicedate"
                     name="invoicedate"
                     className="  p-2 m-1 w-full   rounded border-2  border-blue-200"
                   />
@@ -472,10 +473,6 @@ const FormData = (props) => {
             {/* table below  */}
 
             <div className="w-5/6 mb-12 mt-5">
-              {/* list below  */}
-              {/* list below  */}
-              {/* list below  */}
-              {/* list below  */}
               {/* list below  */}
 
               <FieldArray
