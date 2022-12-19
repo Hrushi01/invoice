@@ -15,7 +15,8 @@ function Total(props) {
         <Textfit
           mode="single"
           forceSingleModeWidth={false}
-          className="text-lg  ">
+          className="text-lg  "
+          data-testid="sum">
           ${sum}
         </Textfit>
 
@@ -25,7 +26,8 @@ function Total(props) {
         <Textfit
           mode="single"
           forceSingleModeWidth={false}
-          className="text-lg  ">
+          className="text-lg  "
+          data-testid="tax">
           ${tax}
         </Textfit>
         <div className="flex">
@@ -34,7 +36,8 @@ function Total(props) {
         <Textfit
           mode="single"
           forceSingleModeWidth={false}
-          className=" text-lg ">
+          className=" text-lg "
+          data-testid="totalt">
           ${total}
         </Textfit>
       </div>

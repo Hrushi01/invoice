@@ -15,7 +15,8 @@ function TotalAmt(props) {
             mode="single"
             forceSingleModeWidth={false}
             style={{ height: "100%" }}
-            className="border-2  border-gray-400 border-t-0 p-1  ">
+            className="border-2  border-gray-400 border-t-0 p-1  "
+            data-testid="sum">
             ${sum}
           </Textfit>
           <div className="flex  h-9">
@@ -30,7 +31,8 @@ function TotalAmt(props) {
               mode="single"
               forceSingleModeWidth={false}
               style={{ height: "100%" }}
-              className="border-2  border-gray-400 border-t-0 p-1   ">
+              className="border-2  border-gray-400 border-t-0 p-1   "
+              data-testid="due">
               ${sum}
             </Textfit>
           </div>

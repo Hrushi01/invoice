@@ -22,7 +22,8 @@ function Table2(props) {
                     index === 0
                       ? "border-b-2 border-black font-mono font-extrabold text-lg p-2 "
                       : "hidden "
-                  }>
+                  }
+                  data-testid="thead">
                   <td className="w-30 ">Desciption</td>
                   <td className="w-30">QTY</td>
                   <td className="w-30 ">PRICE</td>
@@ -32,11 +33,19 @@ function Table2(props) {
               <tbody>
                 {item.quantity && item.description && item.price ? (
                   <tr className="text-gray-600 font-serif text-sm p-5">
-                    <td className="w-2/4 p-2">{item.description}</td>
-                    <td className="w-1/6 ">{item.quantity}</td>
-                    <td>${item.price}</td>
-                    <td className="w-1/6">${calTot(index)}</td>
-                    <td className="hidden">{(total += calTot(index))}</td>
+                    <td className="w-2/4 p-2" data-testid="desc">
+                      {item.description}
+                    </td>
+                    <td className="w-1/6 " data-testid="quantity">
+                      {item.quantity}
+                    </td>
+                    <td data-testid="price">${item.price}</td>
+                    <td className="w-1/6" data-testid="total">
+                      ${calTot(index)}
+                    </td>
+                    <td className="hidden" data-testid="totalfunction">
+                      {(total += calTot(index))}
+                    </td>
                   </tr>
                 ) : (
                   <></>

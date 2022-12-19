@@ -17,9 +17,8 @@ function Table({ data, setSum }) {
             <table className="table-auto w-full border-2 ">
               <thead>
                 <tr
-                  className={
-                    index === 0 ? "bg-slate-200 font-bold " : "hidden"
-                  }>
+                  className={index === 0 ? "bg-slate-200 font-bold " : "hidden"}
+                  data-testid="thead">
                   <td className="w-30">Quantity</td>
 
                   <td className="w-30 ">Desciption</td>
@@ -30,12 +29,20 @@ function Table({ data, setSum }) {
               {item.quantity && item.description && item.price ? (
                 <tbody>
                   <tr>
-                    <td className="w-1/6 p-2 ">{item.quantity}</td>
+                    <td className="w-1/6 p-2 " data-testid="quantity">
+                      {item.quantity}
+                    </td>
 
-                    <td className="w-2/4">{item.description}</td>
-                    <td>{item.price}</td>
-                    <td className="w-1/6">{calTot(index)}</td>
-                    <td className="hidden">{(total += calTot(index))}</td>
+                    <td className="w-2/4" data-testid="desc">
+                      {item.description}
+                    </td>
+                    <td data-testid="price">{item.price}</td>
+                    <td className="w-1/6" data-testid="total">
+                      {calTot(index)}
+                    </td>
+                    <td className="hidden" data-testid="totalfunction">
+                      {(total += calTot(index))}
+                    </td>
                   </tr>
                 </tbody>
               ) : (

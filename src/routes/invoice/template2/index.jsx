@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
 import { FaArrowLeft } from "react-icons/fa";
 import Total from "../../../components/Total2";
-import Footer from "../../../components/Footer2";
+import Footer from "../../../components/Footer";
 import Table2 from "../../../components/Table2";
 import { useNavigate } from "react-router";
 
