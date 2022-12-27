@@ -26,6 +26,7 @@ export const schema = Yup.object({
     .max(999999, "Invalid")
     .required("Required"),
   invoicenumber: Yup.number().typeError("Invalid").required("Required"),
+  // capacha: Yup.boolean().isTrue("Incorrect").required("Required"),
   list: Yup.array(
     Yup.object({
       quantity: Yup.number().min(1, "Invalid").required("Required"),

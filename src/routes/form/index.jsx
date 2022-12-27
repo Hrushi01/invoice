@@ -1,13 +1,17 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Formik, Form, Field, FieldArray, ErrorMessage } from "formik";
 import { schema } from "../../schema/schema";
 import { useNavigate } from "react-router";
 import { FaCameraRetro } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
+import Capcha from "../../components/Capcha";
+import { Button } from "@mui/material";
 
 const FormData = (props) => {
   const navigate = useNavigate();
   const { data, setData, picture, setpicture } = props;
+  const [check, setCheck] = useState();
+
   const img = useRef(null);
 
   let sum = 0;
@@ -612,16 +616,38 @@ const FormData = (props) => {
                   );
                 }}
               />
+              <div className="grid grid-cols-2">
+                <Capcha check={check} setCheck={setCheck} />
+              </div>
             </div>
-            {/* {datahandler(props)} */}
-            <button
-              type="submit"
-              className=" bg-blue-600 text-white rounded p-2 bottom-4 "
-              onClick={() => {
-                setData(props.values);
-              }}>
-              Submit
-            </button>
+            <div>
+              {check ? (
+                <div>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    size="large"
+                    onClick={() => {
+                      setData(props.values);
+                    }}>
+                    Submit
+                  </Button>
+                </div>
+              ) : (
+                <div>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    disabled
+                    size="large"
+                    onClick={() => {
+                      setData(props.values);
+                    }}>
+                    Submit
+                  </Button>
+                </div>
+              )}
+            </div>
           </Form>
         )}
       </Formik>
