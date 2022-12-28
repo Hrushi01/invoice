@@ -411,13 +411,8 @@ const FormData = (props) => {
                       placeholder="Enter Client address"
                       className="  p-2 m-1 w-full   rounded border-2  border-blue-200"
                     />
-                    <div className="flex justify-left pl-3">
-                      {props.errors.clientaddress &&
-                      props.touched.clientaddress ? (
-                        <p className="  text-red-600">
-                          {props.errors.clientaddress}
-                        </p>
-                      ) : null}
+                    <div className="flex justify-left pl-3 text-red-600">
+                      <ErrorMessage name="clientaddress" />
                     </div>
                   </div>
                   <div className="   ">
@@ -433,11 +428,7 @@ const FormData = (props) => {
                       className=" p-2 m-1 w-full   rounded border-2 border-blue-200"
                     />
                     <div className="flex justify-left pl-3">
-                      {props.errors.clientstate && props.touched.clientstate ? (
-                        <p className="  text-red-600">
-                          {props.errors.clientstate}
-                        </p>
-                      ) : null}
+                      <ErrorMessage name="clientstate" />
                     </div>
                   </div>
 
@@ -470,15 +461,12 @@ const FormData = (props) => {
               </div>
             </div>
 
-            {/* table below  */}
-            {/* table below  */}
-            {/* table below  */}
-            {/* table below  */}
-            {/* table below  */}
+            {/* list below  */}
+            {/* list below  */}
+            {/* list below  */}
+            {/* list below  */}
 
             <div className="w-5/6 mb-12 mt-5">
-              {/* list below  */}
-
               <FieldArray
                 name="list"
                 render={(arrayhelpers) => {
@@ -524,10 +512,7 @@ const FormData = (props) => {
                                           placeholder="Description"
                                           className=" p-2 m-1 w-full   rounded border-2 border-blue-200"
                                         />
-                                        {/* {console.log(
-                                          props.errors.list,
-                                          "ERRORS"
-                                        )} */}
+
                                         <div className="text-red-600 flex justify-left pl-3">
                                           <ErrorMessage
                                             name={`list.${index}.description`}

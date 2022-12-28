@@ -11,21 +11,35 @@ function Capcha(props) {
   const randomNumberInRange = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
+
+  const shuffleArray = (array) => {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+
+    return array;
+  };
   const allAns = useMemo(
-    () => [
-      randomNumberInRange(100, 999),
-      randomNumberInRange(100, 999),
-      num1 + num2,
-      randomNumberInRange(100, 999),
-    ],
+    () =>
+      shuffleArray([
+        randomNumberInRange(1, 10),
+        randomNumberInRange(1, 10),
+
+        num1 + num2,
+        randomNumberInRange(1, 10),
+      ]),
     [num1, num2]
   );
 
   useEffect(() => {
-    setNum1(randomNumberInRange(1, 99));
+    setNum1(randomNumberInRange(1, 5));
   }, [allAns]);
   useEffect(() => {
-    setNum2(randomNumberInRange(1, 99));
+    setNum2(randomNumberInRange(1, 4));
   }, []);
 
   return (
