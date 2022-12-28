@@ -7,6 +7,7 @@ function Capcha(props) {
   const [num1, setNum1] = useState();
   const [num2, setNum2] = useState();
   const [ans, setAns] = useState();
+  const [refresh, setRefresh] = useState(false);
   console.log(ans);
   const randomNumberInRange = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -37,10 +38,10 @@ function Capcha(props) {
 
   useEffect(() => {
     setNum1(randomNumberInRange(1, 5));
-  }, [allAns]);
+  }, [refresh]);
   useEffect(() => {
     setNum2(randomNumberInRange(1, 4));
-  }, []);
+  }, [refresh]);
 
   return (
     <div>
@@ -111,6 +112,7 @@ function Capcha(props) {
               onClick={() => {
                 setAns(null);
                 setCheck(null);
+                setRefresh(!refresh);
               }}>
               <FaRedo />
             </Button>
