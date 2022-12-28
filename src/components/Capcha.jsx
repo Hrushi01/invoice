@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { Button } from "@mui/material";
 import { FaRedo } from "react-icons/fa";
 
@@ -13,6 +13,16 @@ function Capcha(props) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
 
+  const handelpush = useCallback(() => {
+    var ankit = [];
+    ankit.push(num1 + num2);
+    while (ankit.length < 4) {
+      var r = Math.floor(Math.random() * 10) + 1;
+      if (ankit.indexOf(r) === -1) ankit.push(r);
+    }
+    return ankit;
+  }, [num1, num2]);
+
   const shuffleArray = (array) => {
     for (var i = array.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
@@ -24,17 +34,8 @@ function Capcha(props) {
 
     return array;
   };
-  const allAns = useMemo(
-    () =>
-      shuffleArray([
-        randomNumberInRange(1, 10),
-        randomNumberInRange(1, 10),
 
-        num1 + num2,
-        randomNumberInRange(1, 10),
-      ]),
-    [num1, num2]
-  );
+  const allAns = useMemo(() => shuffleArray(handelpush()), [handelpush]);
 
   useEffect(() => {
     setNum1(randomNumberInRange(1, 5));
@@ -93,9 +94,7 @@ function Capcha(props) {
                 : check === false
                 ? "flex justify-around px-6 border-red-300 border-2  rounded-xl bg-slate-100 shadow p-2 text-lg font-serif font-semibold m-2 w-2/3"
                 : " flex justify-around px-6 rounded-xl bg-slate-100 shadow p-2 text-lg font-serif font-semibold m-2 w-2/3"
-            }
-            //  className=" "
-          >
+            }>
             <Button
               variant="contained"
               onClick={() => {
