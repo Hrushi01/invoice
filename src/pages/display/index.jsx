@@ -11,64 +11,64 @@ import { FaIndent } from "react-icons/fa";
 import Invoice2 from "../../routes/invoice/template2";
 
 function Display() {
-  const [data, setData] = useState({
-    name: "hrusih",
-    address: "eehheheheh",
-    state: "Maharashtra",
-    city: "Pune",
-    pin: "411028",
-    file: null,
-
-    holdername: "Trakiot",
-    accnumber: "411255",
-    IFSC: "hfhf44",
-    bankname: "nnfnfnfn",
-
-    clientname: "trakiot",
-    clientaddress: "hthhthth",
-    clientstate: "jtjtjtjjt",
-    clientpin: "422515",
-    invoicenumber: "11451",
-    invoicedate: "",
-    capacha: null,
-
-    list: [
-      {
-        quantity: 4,
-        description: "dndndn",
-        price: 5,
-        total: null,
-      },
-    ],
-  });
   // const [data, setData] = useState({
-  //   name: "",
-  //   address: "",
-  //   state: "",
-  //   city: "",
-  //   pin: "",
+  //   name: "hrusih",
+  //   address: "eehheheheh",
+  //   state: "Maharashtra",
+  //   city: "Pune",
+  //   pin: "411028",
   //   file: null,
 
-  //   holdername: "",
-  //   accnumber: "",
-  //   IFSC: "",
-  //   bankname: "",
+  //   holdername: "Trakiot",
+  //   accnumber: "411255",
+  //   IFSC: "hfhf44",
+  //   bankname: "nnfnfnfn",
 
-  //   clientname: "",
-  //   clientaddress: "",
-  //   clientstate: "",
-  //   clientpin: "",
-  //   invoicenumber: "",
+  //   clientname: "trakiot",
+  //   clientaddress: "hthhthth",
+  //   clientstate: "jtjtjtjjt",
+  //   clientpin: "422515",
+  //   invoicenumber: "11451",
   //   invoicedate: "",
+  //   capacha: null,
 
   //   list: [
   //     {
-  //       quantity: "",
-  //       description: "",
-  //       price: "",
+  //       quantity: 4,
+  //       description: "dndndn",
+  //       price: 5,
+  //       total: null,
   //     },
   //   ],
   // });
+  const [data, setData] = useState({
+    name: "",
+    address: "",
+    state: "",
+    city: "",
+    pin: "",
+    file: null,
+
+    holdername: "",
+    accnumber: "",
+    IFSC: "",
+    bankname: "",
+
+    clientname: "",
+    clientaddress: "",
+    clientstate: "",
+    clientpin: "",
+    invoicenumber: "",
+    invoicedate: "",
+
+    list: [
+      {
+        quantity: "",
+        description: "",
+        price: "",
+      },
+    ],
+  });
   const [picture, setpicture] = useState(null);
 
   return (

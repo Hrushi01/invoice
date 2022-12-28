@@ -427,7 +427,7 @@ const FormData = (props) => {
                       placeholder="Enter clientstate"
                       className=" p-2 m-1 w-full   rounded border-2 border-blue-200"
                     />
-                    <div className="flex justify-left pl-3">
+                    <div className="flex justify-left pl-3 text-red-600">
                       <ErrorMessage name="clientstate" />
                     </div>
                   </div>
