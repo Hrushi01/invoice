@@ -31,7 +31,7 @@ function Invoice2(props) {
           <div className="p-5 grid  grid-cols-2 border-b-8 border-black items-center ">
             <div className=" text-4xl  flex gap-0  ">
               <div
-                className="profile w-20 bg-slate-400 h-20 rounded-full overflow-hidden  bg-cover pr-1"
+                className="profile w-24 bg-slate-400 h-24 rounded-full overflow-hidden  bg-cover pr-1"
                 style={{
                   backgroundImage: `url(${picture})`,
                 }}

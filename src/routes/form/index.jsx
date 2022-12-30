@@ -1,5 +1,6 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { Formik, Form, Field, FieldArray, ErrorMessage } from "formik";
+import WebcamCapture from "../../components/WebcamCapture";
 import { schema } from "../../schema/schema";
 import { useNavigate } from "react-router";
 import { FaCameraRetro } from "react-icons/fa";
@@ -11,6 +12,7 @@ const FormData = (props) => {
   const navigate = useNavigate();
   const { data, setData, picture, setpicture } = props;
   const [check, setCheck] = useState();
+  const [camon, setCamOn] = useState(false);
 
   const img = useRef(null);
 
@@ -69,54 +71,87 @@ const FormData = (props) => {
                   Logo:
                 </label>
 
-                <div className="flex  w-2/4 ">
-                  <div className="flex flex-col w-20 h-20 relative ">
-                    <img
-                      src={
-                        picture
-                          ? picture
-                          : "https://via.placeholder.com/150.png?text=Logo"
-                      }
-                      alt="img"
-                      className="w-full h-full rounded-full shadow-md"
+                <div className="grid grid-cols-3">
+                  <div className="flex flex-col     ">
+                    <div className="flex flex-col w-36 h-36 relative ">
+                      <img
+                        src={
+                          picture
+                            ? picture
+                            : "https://via.placeholder.com/150.png?text=Logo"
+                        }
+                        alt="img"
+                        className="w-full h-full rounded-full shadow-md"
+                      />
+                      <div className="absolute bottom-0 right-0 rounded-full z-10 p-1 bg-white items-center justify-center flex">
+                        <div
+                          className="bg-black p-1 rounded-full cursor-pointer "
+                          onClick={() => {
+                            img.current.click();
+                          }}>
+                          <FaCameraRetro
+                            color={"white"}
+                            width="20px"
+                            height="20px"
+                          />
+                        </div>
+                      </div>
+                      {picture ? (
+                        <div className="absolute top-0 right-0 rounded-full z-10   bg-transparent items-center justify-center flex">
+                          <div
+                            className="  rounded-full cursor-pointer text-2xl bg-white p-0.5 "
+                            onClick={() => {
+                              setpicture(null);
+                            }}>
+                            <MdDeleteForever color={"red"} />
+                          </div>
+                        </div>
+                      ) : (
+                        <></>
+                      )}
+                    </div>
+                    <input
+                      ref={img}
+                      type="file"
+                      hidden
+                      accept="image/*"
+                      onChange={(e) => {
+                        let pic = URL.createObjectURL(e.target.files[0]);
+                        setpicture(pic);
+                      }}
                     />
-                    <div className="absolute bottom-0 right-0 rounded-full z-10 p-1 bg-white items-center justify-center flex">
-                      <div
-                        className="bg-black p-1 rounded-full cursor-pointer "
+                    <div className="flex  justify-between p-5 bottom-0">
+                      <Button
+                        type="button"
+                        variant="contained"
                         onClick={() => {
                           img.current.click();
                         }}>
-                        <FaCameraRetro
-                          color={"white"}
-                          width="20px"
-                          height="20px"
-                        />
-                      </div>
+                        Upload
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="contained"
+                        onClick={() => setCamOn(!camon)}>
+                        Click now
+                      </Button>
                     </div>
-                    {picture ? (
-                      <div className="absolute top-0 right-0 rounded-full z-10   bg-transparent items-center justify-center flex">
-                        <div
-                          className="  rounded-full cursor-pointer text-2xl bg-white p-0.5 "
-                          onClick={() => {
-                            setpicture(null);
-                          }}>
-                          <MdDeleteForever color={"red"} />
-                        </div>
+                  </div>
+                  <div className=" h-36 col-span-1.5">
+                    {camon ? (
+                      <div className="flex  ">
+                        <WebcamCapture
+                          picture={picture}
+                          setpicture={setpicture}
+                        />
                       </div>
                     ) : (
                       <></>
                     )}
                   </div>
-                  <input
-                    ref={img}
-                    type="file"
-                    hidden
-                    accept="image/*"
-                    onChange={(e) => {
-                      let pic = URL.createObjectURL(e.target.files[0]);
-                      setpicture(pic);
-                    }}
-                  />
+                  {/* <div className=""> */}
+
+                  {/* </div> */}
                 </div>
               </div>
 
