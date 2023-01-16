@@ -71,7 +71,7 @@ const FormData = (props) => {
                   Logo:
                 </label>
 
-                <div className="grid grid-cols-3">
+                <div className="grid grid-cols-3 relative">
                   <div className="flex flex-col     ">
                     <div className="flex flex-col w-36 h-36 relative ">
                       <img
@@ -137,10 +137,13 @@ const FormData = (props) => {
                       </Button>
                     </div>
                   </div>
-                  <div className=" h-36 col-span-1.5">
+                  {}
+                  <div>
                     {camon ? (
                       <div className="flex  ">
                         <WebcamCapture
+                          camon={camon}
+                          setCamOn={setCamOn}
                           picture={picture}
                           setpicture={setpicture}
                         />
@@ -149,9 +152,6 @@ const FormData = (props) => {
                       <></>
                     )}
                   </div>
-                  {/* <div className=""> */}
-
-                  {/* </div> */}
                 </div>
               </div>
 
