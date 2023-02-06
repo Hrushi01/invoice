@@ -14,22 +14,21 @@ const WebcamCapture = (props) => {
   const { camon, setCamOn, setpicture, picture } = props;
   const webcamRef = React.useRef(null);
 
-  const capture = React.useCallback(() => {
-    const imageSrc = webcamRef.current.getScreenshot();
-    setpicture(imageSrc);
-  }, [webcamRef, setpicture]);
+  // const capture = React.useCallback(, [webcamRef, setpicture]);
 
-  const onuser = (e) => {
-    console.log(e);
-  };
+  // const onuser = (e) => {
+  //   console.log(e);
+  // };
   return (
     <>
       <div className="items-center">
         <Modal
+          data-testid="webcam-modal"
           open={camon}
           onClose={() => {
             setCamOn(false);
-          }}>
+          }}
+        >
           <Box className="  left-1/2 right-1/2  translate-x-1/2 translate-y-1/3 bg-orange-50 opacity-90 border-2 border-gray-600 w-1/2 p-5">
             <div>
               <div className="  left-2 top-2">
@@ -38,11 +37,15 @@ const WebcamCapture = (props) => {
                   component="label"
                   onClick={() => {
                     setCamOn(false);
-                  }}>
+                  }}
+                >
                   X
                 </IconButton>
               </div>
-              <div className="flex justify-center text-center">
+              <div
+                className="flex justify-center text-center"
+                data-testid="texte"
+              >
                 <Typography variant="h5">
                   Please have a clear Background.
                 </Typography>
@@ -52,6 +55,7 @@ const WebcamCapture = (props) => {
                   {picture ? (
                     <div className="">
                       <img
+                        data-testid="img"
                         src={
                           picture
                             ? picture
@@ -63,29 +67,44 @@ const WebcamCapture = (props) => {
                     </div>
                   ) : (
                     <Webcam
+                      data-testid="webcam"
                       audio={false}
                       ref={webcamRef}
                       screenshotFormat="image/jpeg"
                       width={450}
-                      onUserMedia={onuser}
+                      // onUserMedia={onuser}
                       videoConstraints={videoConstraints}
                     />
                   )}
                 </div>
               </div>
               <div className="grid grid-cols-3 gap-5  mt-4  ">
-                <Button variant="contained" onClick={capture}>
+                <Button
+                  data-testid="capture-button"
+                  variant="contained"
+                  onClick={() => {
+                    const imageSrc = webcamRef.current.getScreenshot();
+                    setpicture(imageSrc);
+                  }}
+                >
                   Capture
                 </Button>
-                <Button variant="contained" onClick={() => setpicture(null)}>
+                <Button
+                  className="retake"
+                  data-testid="retake-button"
+                  variant="contained"
+                  onClick={() => setpicture(null)}
+                >
                   Retake
                 </Button>
                 <Button
+                  data-testid="close-button"
                   variant="contained"
                   color="error"
                   onClick={() => {
                     setCamOn(false);
-                  }}>
+                  }}
+                >
                   Close
                 </Button>
               </div>

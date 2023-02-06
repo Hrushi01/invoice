@@ -8,7 +8,6 @@ function Capcha(props) {
   const [num2, setNum2] = useState();
   const [ans, setAns] = useState();
   const [refresh, setRefresh] = useState(false);
-  console.log(ans);
   const randomNumberInRange = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
@@ -56,10 +55,10 @@ function Capcha(props) {
                 : check === false
                 ? " border-red-300 border-2 p-5 rounded-xl"
                 : "  font-bold text-xl p-5 rounded-xl"
-            }>
-            <div className="  ">
-              What is {num1}&nbsp; +&nbsp;
-              {num2}&nbsp;= ?
+            }
+          >
+            <div className="  " data-testid="test1">
+              What is {num1} +{num2}= ?
             </div>
             <div className="justify-center text-center flex">
               <div className="grid grid-cols-2 w-1/2 ">
@@ -75,7 +74,8 @@ function Capcha(props) {
                         }
                         onClick={() => {
                           setAns(item);
-                        }}>
+                        }}
+                      >
                         {item}
                       </button>
                     </div>
@@ -94,25 +94,33 @@ function Capcha(props) {
                 : check === false
                 ? "flex justify-around px-6 border-red-300 border-2  rounded-xl bg-slate-100 shadow p-2 text-lg font-serif font-semibold m-2 w-2/3"
                 : " flex justify-around px-6 rounded-xl bg-slate-100 shadow p-2 text-lg font-serif font-semibold m-2 w-2/3"
-            }>
+            }
+          >
             <Button
+              className="testing1"
               variant="contained"
+              data-testid="verify"
               onClick={() => {
+                console.log("hehe", ans, num1, num2);
                 if (ans === num1 + num2) {
                   setCheck(true);
                 } else {
                   setCheck(false);
                 }
-              }}>
+              }}
+            >
               Verify
             </Button>
             <Button
+              className="redotest"
+              data-testid="redo"
               variant="contained"
               onClick={() => {
                 setAns(null);
                 setCheck(null);
                 setRefresh(!refresh);
-              }}>
+              }}
+            >
               <FaRedo />
             </Button>
           </div>

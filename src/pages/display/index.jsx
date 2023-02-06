@@ -11,64 +11,64 @@ import { FaIndent } from "react-icons/fa";
 import Invoice2 from "../../routes/invoice/template2";
 
 function Display() {
-  // const [data, setData] = useState({
-  //   name: "hrusih",
-  //   address: "eehheheheh",
-  //   state: "Maharashtra",
-  //   city: "Pune",
-  //   pin: "411028",
-  //   file: null,
-
-  //   holdername: "Trakiot",
-  //   accnumber: "411255",
-  //   IFSC: "hfhf44",
-  //   bankname: "nnfnfnfn",
-
-  //   clientname: "trakiot",
-  //   clientaddress: "hthhthth",
-  //   clientstate: "jtjtjtjjt",
-  //   clientpin: "422515",
-  //   invoicenumber: "11451",
-  //   invoicedate: "",
-  //   capacha: null,
-
-  //   list: [
-  //     {
-  //       quantity: 4,
-  //       description: "dndndn",
-  //       price: 5,
-  //       total: null,
-  //     },
-  //   ],
-  // });
   const [data, setData] = useState({
-    name: "",
-    address: "",
-    state: "",
-    city: "",
-    pin: "",
+    name: "hrusih",
+    address: "eehheheheh",
+    state: "Maharashtra",
+    city: "Pune",
+    pin: "411028",
     file: null,
 
-    holdername: "",
-    accnumber: "",
-    IFSC: "",
-    bankname: "",
+    holdername: "Trakiot",
+    accnumber: "411255",
+    IFSC: "hfhf44",
+    bankname: "nnfnfnfn",
 
-    clientname: "",
-    clientaddress: "",
-    clientstate: "",
-    clientpin: "",
-    invoicenumber: "",
+    clientname: "trakiot",
+    clientaddress: "hthhthth",
+    clientstate: "jtjtjtjjt",
+    clientpin: "422515",
+    invoicenumber: "11451",
     invoicedate: "",
+    capacha: null,
 
     list: [
       {
-        quantity: "",
-        description: "",
-        price: "",
+        quantity: 4,
+        description: "dndndn",
+        price: 5,
+        total: null,
       },
     ],
   });
+  // const [data, setData] = useState({
+  //   name: "",
+  //   address: "",
+  //   state: "",
+  //   city: "",
+  //   pin: "",
+  //   file: null,
+
+  //   holdername: "",
+  //   accnumber: "",
+  //   IFSC: "",
+  //   bankname: "",
+
+  //   clientname: "",
+  //   clientaddress: "",
+  //   clientstate: "",
+  //   clientpin: "",
+  //   invoicenumber: "",
+  //   invoicedate: "",
+
+  //   list: [
+  //     {
+  //       quantity: "",
+  //       description: "",
+  //       price: "",
+  //     },
+  //   ],
+  // });
   const [picture, setpicture] = useState(null);
 
   return (
@@ -80,13 +80,15 @@ function Display() {
           </div>
           <div
             className=" xl:lg:text-4xl pl-2 pb-2 md:sm:text-2xl text1 "
-            data-testid="text">
+            data-testid="text"
+          >
             Invoice Builder
           </div>
         </div>
         <div
           className="p-3 text-xl flex italic text-blue-500 xl:pr-56 justify-end sm:md:lg:pr-2  md:sm:text-2xl text2 "
-          data-testid="text2">
+          data-testid="text2"
+        >
           Create and Download your Invoice for free Now!!
         </div>
       </div>
@@ -105,7 +107,8 @@ function Display() {
                   setpicture={setpicture}
                   data-testid="fromdata"
                 />
-              }></Route>
+              }
+            ></Route>
 
             <Route
               path="/template1"
@@ -113,11 +116,13 @@ function Display() {
                 // <Router>
                 <Invoice data={data} />
                 // </Router>
-              }></Route>
+              }
+            ></Route>
 
             <Route
               path="/template2"
-              element={<Invoice2 data={data} picture={picture} />}></Route>
+              element={<Invoice2 data={data} picture={picture} />}
+            ></Route>
           </Routes>
         </Router>
       </div>

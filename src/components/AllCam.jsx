@@ -20,6 +20,7 @@ const WebcamCapture = () => {
       {devices.map((device, key) => (
         <div>
           <Webcam
+            data-testid="webcam"
             audio={false}
             videoConstraints={{ deviceId: device.deviceId }}
           />

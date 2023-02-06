@@ -11,7 +11,7 @@ import { Button } from "@mui/material";
 const FormData = (props) => {
   const navigate = useNavigate();
   const { data, setData, picture, setpicture } = props;
-  const [check, setCheck] = useState();
+  const [check, setCheck] = useState(null);
   const [camon, setCamOn] = useState(false);
 
   const img = useRef(null);
@@ -31,7 +31,8 @@ const FormData = (props) => {
         validationSchema={schema}
         onSubmit={() => {
           navigate("/templates");
-        }}>
+        }}
+      >
         {(props) => (
           <Form className="flex flex-col  bg-white  w-3/4 shadow justify-center items-center m-2 p-2">
             <div className="w-5/6 mb-12 mt-5">
@@ -88,7 +89,8 @@ const FormData = (props) => {
                           className="bg-black p-1 rounded-full cursor-pointer "
                           onClick={() => {
                             img.current.click();
-                          }}>
+                          }}
+                        >
                           <FaCameraRetro
                             color={"white"}
                             width="20px"
@@ -102,7 +104,8 @@ const FormData = (props) => {
                             className="  rounded-full cursor-pointer text-2xl bg-white p-0.5 "
                             onClick={() => {
                               setpicture(null);
-                            }}>
+                            }}
+                          >
                             <MdDeleteForever color={"red"} />
                           </div>
                         </div>
@@ -126,13 +129,15 @@ const FormData = (props) => {
                         variant="contained"
                         onClick={() => {
                           img.current.click();
-                        }}>
+                        }}
+                      >
                         Upload
                       </Button>
                       <Button
                         type="button"
                         variant="contained"
-                        onClick={() => setCamOn(!camon)}>
+                        onClick={() => setCamOn(!camon)}
+                      >
                         Click now
                       </Button>
                     </div>
@@ -514,15 +519,15 @@ const FormData = (props) => {
                             return (
                               <div
                                 className="mt-2  border-solid shadow-xl mb-5 rounded-lg "
-                                key={index}>
+                                key={index}
+                              >
                                 {index > 0 && (
                                   <div>
                                     <button
                                       type="button"
                                       className="float-right text-xl "
-                                      onClick={() =>
-                                        arrayhelpers.remove(index)
-                                      }>
+                                      onClick={() => arrayhelpers.remove(index)}
+                                    >
                                       ❌
                                     </button>
                                   </div>
@@ -536,7 +541,8 @@ const FormData = (props) => {
                                       <div className="  w-full  ">
                                         <label
                                           className="flex justify-start font-bold font-serif text-lg text-gray-600 pl-1"
-                                          htmlFor={`list.${index}.description`}>
+                                          htmlFor={`list.${index}.description`}
+                                        >
                                           Item Description:
                                         </label>
 
@@ -559,7 +565,8 @@ const FormData = (props) => {
                                       <div className=" flex-col    flex">
                                         <label
                                           className="flex justify-start pl-1 font-bold font-serif text-lg text-gray-600"
-                                          htmlFor={`list.${index}.quantity`}>
+                                          htmlFor={`list.${index}.quantity`}
+                                        >
                                           Quantity:
                                         </label>
                                         <Field
@@ -580,7 +587,8 @@ const FormData = (props) => {
                                       <div className=" flex flex-col">
                                         <label
                                           className="flex justify-start pl-1 font-bold font-serif text-lg text-gray-600"
-                                          htmlFor={`list.${index}.price`}>
+                                          htmlFor={`list.${index}.price`}
+                                        >
                                           Price:
                                         </label>
                                         <Field
@@ -595,7 +603,8 @@ const FormData = (props) => {
                                       <div className="hidden">
                                         <label
                                           className="flex justify-start pl-1 font-bold font-serif text-lg text-gray-600"
-                                          htmlFor={`list.${index}.total`}>
+                                          htmlFor={`list.${index}.total`}
+                                        >
                                           Amount:
                                         </label>
                                         <Field
@@ -628,7 +637,8 @@ const FormData = (props) => {
                               price: 0,
                               total: null,
                             });
-                          }}>
+                          }}
+                        >
                           Add Item+
                         </button>
                       </div>
@@ -649,7 +659,8 @@ const FormData = (props) => {
                     size="large"
                     onClick={() => {
                       setData(props.values);
-                    }}>
+                    }}
+                  >
                     Submit
                   </Button>
                 </div>
@@ -662,7 +673,8 @@ const FormData = (props) => {
                     size="large"
                     onClick={() => {
                       setData(props.values);
-                    }}>
+                    }}
+                  >
                     Submit
                   </Button>
                 </div>
@@ -676,3 +688,4 @@ const FormData = (props) => {
 };
 
 export default FormData;
+// export { calTot, FormData };

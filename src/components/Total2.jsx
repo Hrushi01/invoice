@@ -12,34 +12,46 @@ function Total(props) {
         <div className="flex">
           <div className="font-semibold">TOTAL AMOUNT:</div>
         </div>
-        <Textfit
-          mode="single"
-          forceSingleModeWidth={false}
-          className="text-lg  "
-          data-testid="sum">
-          ${sum}
-        </Textfit>
+        <div className=" h-8">
+          <Textfit
+            mode="single"
+            height={100}
+            forceSingleModeWidth={false}
+            className="text-lg  "
+            data-testid="sum"
+          >
+            ${sum}
+          </Textfit>
+        </div>
 
         <div className="flex">
           <div className="font-semibold">TAX (18%): </div>
         </div>
-        <Textfit
-          mode="single"
-          forceSingleModeWidth={false}
-          className="text-lg  "
-          data-testid="tax">
-          ${tax}
-        </Textfit>
+        <div className=" h-8">
+          <Textfit
+            mode="single"
+            height={100}
+            forceSingleModeWidth={false}
+            className="text-lg  "
+            data-testid="tax"
+          >
+            ${tax}
+          </Textfit>
+        </div>
         <div className="flex">
           <div className="font-semibold">Amount Due: </div>
         </div>
-        <Textfit
-          mode="single"
-          forceSingleModeWidth={false}
-          className=" text-lg "
-          data-testid="totalt">
-          ${total}
-        </Textfit>
+        <div className=" h-8">
+          <Textfit
+            mode="single"
+            height={100}
+            forceSingleModeWidth={false}
+            className=" text-lg "
+            data-testid="totalt"
+          >
+            ${total}
+          </Textfit>
+        </div>
       </div>
     </div>
   );
