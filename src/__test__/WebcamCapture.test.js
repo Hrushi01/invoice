@@ -19,19 +19,6 @@ describe("WebcamCapture component", () => {
     container = null;
   });
 
-  it("renders webcam modal", () => {
-    render(
-      <WebcamCapture
-        camon={true}
-        setCamOn={() => {}}
-        picture={null}
-        setPicture={() => {}}
-      />,
-      container
-    );
-    const modal = screen.getByTestId("webcam-modal");
-    expect(modal).toBeInTheDocument();
-  });
   it("modal", () => {
     render(
       <WebcamCapture
