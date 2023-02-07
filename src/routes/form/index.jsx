@@ -506,9 +506,10 @@ const FormData = (props) => {
             {/* list below  */}
             {/* list below  */}
 
-            <div className="w-5/6 mb-12 mt-5">
+            <div className="w-5/6 mb-12 mt-5" data-testid="fieldarrytext">
               <FieldArray
                 name="list"
+                data-testid="fieldarry"
                 render={(arrayhelpers) => {
                   return (
                     <>
