@@ -5,14 +5,13 @@ function Address({ data }) {
     <>
       <div className="flex justify-between h-full">
         <div>
-          {" "}
-          <section className="flex flex-col  justify-start ">
+          <div className="flex flex-col  justify-start ">
             <div data-testid="address">{data.address}</div>
             <div data-testid="citystate">
               {data.city},{data.state}
             </div>
             <div data-testid="pincode">Pincode-{data.pin}</div>
-          </section>
+          </div>
         </div>
         <div>
           <br />

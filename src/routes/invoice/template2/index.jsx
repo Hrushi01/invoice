@@ -21,7 +21,8 @@ function Invoice2(props) {
       <div className="  z-12 pt-16 ">
         <main
           className="m-5 mb-1 mt-0  xl:max-w-4xl xl:mx-auto p-10   bg-white rounded shadow relative"
-          ref={componentRef}>
+          ref={componentRef}
+        >
           {/* Header */}
           {/* Header */}
           {/* Header */}
@@ -35,10 +36,12 @@ function Invoice2(props) {
                 style={{
                   backgroundImage: `url(${picture})`,
                 }}
-                data-testid="logo"></div>{" "}
+                data-testid="logo"
+              ></div>{" "}
               <div
                 className="font-medium w-60  font-serif text-gray-600  flex justify-center items-center text-center  "
-                data-testid="name">
+                data-testid="name"
+              >
                 {data.name}
               </div>
             </div>
@@ -93,18 +96,23 @@ function Invoice2(props) {
         </main>
         <div className=" flex   xl:max-w-4xl xl:mx-auto  xl:pl-80 absolute  sm:text-base sm:pl-5   ">
           <button
+            data-testid="back-button"
             onClick={() => navigate("/templates")}
-            className=" bg-blue-600 w-24 text-white rounded mr-5 m-3 p-2 bottom-4 flex justify-center items-center ">
+            className=" bg-blue-600 w-24 text-white rounded mr-5 m-3 p-2 bottom-4 flex justify-center items-center "
+          >
             <FaArrowLeft className=" " /> &nbsp; Back
           </button>
           <button
             onClick={() => navigate("/")}
-            className=" bg-blue-600 text-white rounded mr-5 m-3 p-2 bottom-4 ">
+            className=" bg-blue-600 text-white rounded mr-5 m-3 p-2 bottom-4 "
+          >
             Edit details
           </button>
           <button
+            data-testid="print-invoice-button"
             onClick={handelprint}
-            className=" bg-blue-600 text-white rounded p-2 m-3 bottom-4 ">
+            className=" bg-blue-600 text-white rounded p-2 m-3 bottom-4 "
+          >
             Print Invoice{" "}
           </button>
         </div>

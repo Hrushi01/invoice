@@ -12,19 +12,6 @@ function Header({ handelprint, data }) {
             Invoice
           </h1>
         </div>
-        {/* <ul className="flex items-center justify-between flex-wrap">
-          <li>
-            <button className="btn btn-print" onClick={handelprint}>
-              Print
-            </button>
-          </li>
-          <li>
-            <button className="btn btn-download">Download</button>
-          </li>
-          <li>
-            <button className="btn btn-send">Send</button>
-          </li>
-        </ul> */}
       </header>
     </>
   );
