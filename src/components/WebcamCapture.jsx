@@ -14,11 +14,6 @@ const WebcamCapture = (props) => {
   const { camon, setCamOn, setpicture, picture } = props;
   const webcamRef = React.useRef(null);
 
-  // const capture = React.useCallback(, [webcamRef, setpicture]);
-
-  // const onuser = (e) => {
-  //   console.log(e);
-  // };
   return (
     <>
       <div className="items-center">
@@ -29,11 +24,12 @@ const WebcamCapture = (props) => {
             setCamOn(false);
           }}
         >
-          <Box className="  left-1/2 right-1/2  translate-x-1/2 translate-y-1/3 bg-orange-50 opacity-90 border-2 border-gray-600 w-1/2 p-5">
+          <Box className="  left-1/2 right-1/2  translate-x-1/2 translate-y-1/3 bg-orange-50 opacity-90 border-2 border-gray-600 w-1/2 p-5  ">
             <div>
               <div className="  left-2 top-2">
                 <IconButton
                   color="error"
+                  data-testid="x-button"
                   component="label"
                   onClick={() => {
                     setCamOn(false);

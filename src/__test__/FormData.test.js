@@ -46,9 +46,9 @@ describe("FormData check", () => {
 
     list: [
       {
-        quantity: "",
-        description: "",
-        price: "",
+        quantity: 5,
+        description: "vfd",
+        price: 4,
       },
     ],
   };

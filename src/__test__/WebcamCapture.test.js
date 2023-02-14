@@ -82,6 +82,16 @@ describe("WebcamCapture component", () => {
     expect(setCamOn).toHaveBeenCalledWith(false);
   });
 
+  it("closes modal on clicking X button", () => {
+    const setCamOn = jest.fn();
+    render(<WebcamCapture camon={true} setCamOn={setCamOn} />, container);
+    const closeBtn = screen.getByTestId("x-button");
+    act(() => {
+      closeBtn.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
+    expect(setCamOn).toHaveBeenCalledWith(false);
+  });
+
   it("should call setPicture when clicked", () => {
     const setPicture = jest.fn();
     render(<WebcamCapture camon={true} setpicture={setPicture} />, container);
