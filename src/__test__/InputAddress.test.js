@@ -2,7 +2,6 @@ import React from "react";
 import { shallow } from "enzyme";
 import InputAddress from "../components/InputAddress";
 import { render, screen } from "@testing-library/react";
-import InputClientInfo from "../components/InputClientInfo";
 import { Formik } from "formik";
 import "@testing-library/jest-dom";
 import { schema } from "../schema/schema";

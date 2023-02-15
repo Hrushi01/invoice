@@ -41,6 +41,8 @@ const FormData = (props) => {
                   </label>
 
                   <Field
+                    data-testid="nameinp"
+                    id="name"
                     type="text"
                     label="Name"
                     name="name"
@@ -86,7 +88,7 @@ const FormData = (props) => {
                 check={check}
               />
             </div>
-            <div>
+            <div data-testid="subp">
               {check ? (
                 <div data-testid="sub1">
                   <Button

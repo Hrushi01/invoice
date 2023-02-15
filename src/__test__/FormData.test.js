@@ -283,4 +283,18 @@ describe("FormData check", () => {
   // const pinin = screen.getByPlaceholderText("Enter your pincode");
   // expect(pinin).toBeInTheDocument();
   //   });
+
+  it("should render a disabled Submit button when check is false", () => {
+    const history = createMemoryHistory({ initialEntries: ["/"] });
+
+    render(
+      <Router location={history.location} children={history} data={initialval}>
+        <FormData check={false} values={{}} />
+      </Router>
+    );
+
+    // Check if the submit button is disabled
+    const submitButton = screen.getByTestId("sub2");
+    expect(submitButton).toBeDisabled();
+  });
 });
