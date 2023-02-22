@@ -1,14 +1,13 @@
 import React from "react";
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-
-import Screen from "../../routes/screen";
-
-import FormData from "../../routes/form";
-import Invoice from "../../routes/invoice/template1";
 import { FaIndent } from "react-icons/fa";
-import Invoice2 from "../../routes/invoice/template2";
+
+const Screen = lazy(() => import("../../routes/screen"));
+const FormData = lazy(() => import("../../routes/form"));
+const Invoice = lazy(() => import("../../routes/invoice/template1"));
+const Invoice2 = lazy(() => import("../../routes/invoice/template2"));
 
 function Display() {
   const [data, setData] = useState({
@@ -41,34 +40,7 @@ function Display() {
       },
     ],
   });
-  // const [data, setData] = useState({
-  //   name: "",
-  //   address: "",
-  //   state: "",
-  //   city: "",
-  //   pin: "",
-  //   file: null,
 
-  //   holdername: "",
-  //   accnumber: "",
-  //   IFSC: "",
-  //   bankname: "",
-
-  //   clientname: "",
-  //   clientaddress: "",
-  //   clientstate: "",
-  //   clientpin: "",
-  //   invoicenumber: "",
-  //   invoicedate: "",
-
-  //   list: [
-  //     {
-  //       quantity: "",
-  //       description: "",
-  //       price: "",
-  //     },
-  //   ],
-  // });
   const [picture, setpicture] = useState(null);
 
   return (
@@ -95,33 +67,50 @@ function Display() {
       <div className="h-full">
         <Router>
           <Routes>
-            <Route path="/templates" element={<Screen data={data} />}></Route>
+            <Route
+              exact
+              path="/templates"
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Screen data={data} />
+                </Suspense>
+              }
+            ></Route>
 
             <Route
+              exact
               path="/"
               element={
-                <FormData
-                  data={data}
-                  setData={setData}
-                  picture={picture}
-                  setpicture={setpicture}
-                  data-testid="fromdata"
-                />
+                <Suspense fallback={<div>Loading...</div>}>
+                  <FormData
+                    data={data}
+                    setData={setData}
+                    picture={picture}
+                    setpicture={setpicture}
+                    data-testid="fromdata"
+                  />
+                </Suspense>
               }
             ></Route>
 
             <Route
+              exact
               path="/template1"
               element={
-                // <Router>
-                <Invoice data={data} />
-                // </Router>
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Invoice data={data} />
+                </Suspense>
               }
             ></Route>
 
             <Route
+              exact
               path="/template2"
-              element={<Invoice2 data={data} picture={picture} />}
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Invoice2 data={data} picture={picture} />
+                </Suspense>
+              }
             ></Route>
           </Routes>
         </Router>
