@@ -2,7 +2,6 @@ import React from "react";
 import Webcam from "react-webcam";
 
 const WebcamCapture = () => {
-  const [deviceId, setDeviceId] = React.useState({});
   const [devices, setDevices] = React.useState([]);
 
   const handleDevices = React.useCallback(

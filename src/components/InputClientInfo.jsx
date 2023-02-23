@@ -6,9 +6,7 @@ function InputClientInfo({ props }) {
     <>
       <div className="w-5/6 mb-12 mt-5">
         {/* first line  */}
-        {/* first line  */}
-        {/* first line  */}
-        {/* first line  */}
+
         <div className="  grid grid-cols-1  gap-10  p-2  ">
           <div className="   ">
             <label
@@ -33,9 +31,6 @@ function InputClientInfo({ props }) {
           </div>
         </div>
 
-        {/* invoice details  */}
-        {/* invoice details  */}
-        {/* invoice details  */}
         {/* invoice details  */}
 
         <div className="  grid grid-cols-2  gap-10  p-2  sm:gap-1 lg:gap-10 ">
@@ -78,10 +73,6 @@ function InputClientInfo({ props }) {
           </div>
         </div>
 
-        {/* Client Address */}
-        {/* Client Address */}
-        {/* Client Address */}
-        {/* Client Address */}
         {/* Client Address */}
 
         <div>

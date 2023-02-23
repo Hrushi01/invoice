@@ -1,6 +1,5 @@
 import React from "react";
 import WebcamCapture from "./WebcamCapture";
-// import { FaCameraRetro } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import { Button } from "@mui/material";
 
@@ -25,17 +24,7 @@ function Logo({ camon, setCamOn, picture, setpicture, img }) {
                 alt="img"
                 className="w-full h-full rounded-full shadow-md"
               />
-              <div className="absolute bottom-0 right-0 rounded-full z-10 p-1 bg-white items-center justify-center flex">
-                {/* <div
-                  className="bg-black p-1 rounded-full cursor-pointer "
-                  data-testid="camicon"
-                  onClick={() => {
-                    img?.current?.click();
-                  }}
-                >
-                  <FaCameraRetro color={"white"} width="20px" height="20px" />
-                </div> */}
-              </div>
+              <div className="absolute bottom-0 right-0 rounded-full z-10 p-1 bg-white items-center justify-center flex"></div>
               {picture ? (
                 <div className="absolute top-0 right-0 rounded-full z-10   bg-transparent items-center justify-center flex">
                   <div
