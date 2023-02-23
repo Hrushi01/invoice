@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import template1 from "../../assets/images/template1.png";
 import template2 from "../../assets/images/template2.png";
 
-function Screen(props) {
+function Screen() {
   return (
     <div className=" p-5 flex justify-center flex-col text-center pt-16">
       <div className="flex justify-center font-semibold italic text-2xl mb-5">
