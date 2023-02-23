@@ -10,32 +10,62 @@ const Invoice = lazy(() => import("../../routes/invoice/template1"));
 const Invoice2 = lazy(() => import("../../routes/invoice/template2"));
 
 function Display() {
+  // const [data, setData] = useState({
+  //   name: "hrusih",
+  //   address: "eehheheheh",
+  //   state: "Maharashtra",
+  //   city: "Pune",
+  //   pin: "411028",
+  //   file: null,
+
+  //   holdername: "Trakiot",
+  //   accnumber: "411255",
+  //   IFSC: "hfhf44",
+  //   bankname: "nnfnfnfn",
+
+  //   clientname: "trakiot",
+  //   clientaddress: "hthhthth",
+  //   clientstate: "jtjtjtjjt",
+  //   clientpin: "422515",
+  //   invoicenumber: "11451",
+  //   invoicedate: "",
+  //   capacha: null,
+
+  //   list: [
+  //     {
+  //       quantity: 4,
+  //       description: "dndndn",
+  //       price: 5,
+  //       total: null,
+  //     },
+  //   ],
+  // });
   const [data, setData] = useState({
-    name: "hrusih",
-    address: "eehheheheh",
-    state: "Maharashtra",
-    city: "Pune",
-    pin: "411028",
+    name: "",
+    address: "",
+    state: "",
+    city: "",
+    pin: "",
     file: null,
 
-    holdername: "Trakiot",
-    accnumber: "411255",
-    IFSC: "hfhf44",
-    bankname: "nnfnfnfn",
+    holdername: "",
+    accnumber: "",
+    IFSC: "",
+    bankname: "",
 
-    clientname: "trakiot",
-    clientaddress: "hthhthth",
-    clientstate: "jtjtjtjjt",
-    clientpin: "422515",
-    invoicenumber: "11451",
+    clientname: "",
+    clientaddress: "",
+    clientstate: "",
+    clientpin: "",
+    invoicenumber: "",
     invoicedate: "",
     capacha: null,
 
     list: [
       {
-        quantity: 4,
-        description: "dndndn",
-        price: 5,
+        quantity: 0,
+        description: "",
+        price: 0,
         total: null,
       },
     ],
